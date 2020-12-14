@@ -3,6 +3,7 @@ package com.spring.CMS.CMS.Service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +18,9 @@ public class CategoryServiceImpl implements CategoryService
 	private CategoryDAO dao;
 
 	@Transactional
-	public List<Category> getAll() 
+	public List<Category> getAll(Pageable pageable) 
 	{
-		return dao.getAll();
+		return dao.getAll(pageable);
 	}
 
 	@Transactional

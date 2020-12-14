@@ -138,5 +138,13 @@ public class Post
 	{
 		this.endDay_post = endDay_post;
 	}
+
+	@Override
+	public String toString() {
+		return "Post [id_post=" + id_post + ", idUser_post=" + idUser_post + ", category_post=" + category_post
+				+ ", type_post=" + type_post + ", image_post=" + image_post + ", title_post=" + title_post
+				+ ", description_post=" + description_post + ", slug_post=" + slug_post + ", startedDate_post="
+				+ startedDate_post + ", endDay_post=" + endDay_post + "]";
+	}
 	
 }

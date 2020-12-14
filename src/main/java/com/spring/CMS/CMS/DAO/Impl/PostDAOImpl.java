@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.spring.CMS.CMS.DAO.PostDAO;
@@ -21,7 +22,7 @@ public class PostDAOImpl implements PostDAO
 	private Session session = em.unwrap(Session.class);
 
 	@Override
-	public List<Post> getAll() 
+	public List<Post> getAll(Pageable pageable)
 	{
 		Query<Post> query = session.createQuery("from post", Post.class);
 		return query.getResultList();

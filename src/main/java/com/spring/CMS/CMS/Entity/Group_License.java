@@ -41,5 +41,10 @@ public class Group_License
 	{
 		this.idLicense_gpolic = idLicense_gpolic;
 	}
+
+	@Override
+	public String toString() {
+		return "Group_License [id_gpolic=" + id_gpolic + ", idLicense_gpolic=" + idLicense_gpolic + "]";
+	}
 	
 }

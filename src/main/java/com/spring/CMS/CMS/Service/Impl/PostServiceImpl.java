@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.CMS.CMS.DAO.PostDAO;
@@ -19,9 +20,9 @@ public class PostServiceImpl implements PostService
 	private PostDAO dao;
 	
 	@Transactional
-	public List<Post> getAll() 
+	public List<Post> getAll(Pageable pageable) 
 	{
-		return dao.getAll();
+		return dao.getAll(pageable);
 	}
 
 	@Transactional

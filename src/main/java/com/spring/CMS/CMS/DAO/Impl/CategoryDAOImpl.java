@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.spring.CMS.CMS.DAO.CategoryDAO;
@@ -20,7 +21,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	private Session session = em.unwrap(Session.class);
 
 	@Override
-	public List<Category> getAll() 
+	public List<Category> getAll(Pageable pageable)
 	{
 		Query<Category> query = session.createQuery("from category", Category.class);
 		return query.getResultList();

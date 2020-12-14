@@ -2,15 +2,16 @@ package com.spring.CMS.CMS.Service;
 
 import java.util.List;
 
-import com.spring.CMS.CMS.DAO.ContentDAO;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
 import com.spring.CMS.CMS.Entity.Content;
 
 public interface ContentService 
 {
-	public List<Content> getAll();
+	public List<Content> getAll(Pageable pageable);
 	public Content getById(int id);
 	public List<Content> getByPost(int post);
-	public void save(ContentDAO content);
-	public void update(ContentDAO content);
-	public void delete(ContentDAO content);
+	public void save(Content content);
+	public void update(Content content);
+	public void delete(Content content);
 }

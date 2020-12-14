@@ -7,50 +7,50 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.CMS.CMS.DAO.UserDAO;
-import com.spring.CMS.CMS.Entity.User;
-import com.spring.CMS.CMS.Service.UserService;
+import com.spring.CMS.CMS.DAO.LicenseDAO;
+import com.spring.CMS.CMS.Entity.License;
+import com.spring.CMS.CMS.Service.LicenseService;
 
 @Service
-public class UserServiceImpl implements UserService
+public class LicenseServiceImpl implements LicenseService
 {
 	@Autowired
-	private UserDAO dao;
+	private LicenseDAO dao;
 
 	@Transactional
-	public List<User> getAll(Pageable pageable) 
+	public List<License> getAll(Pageable pageable)
 	{
 		return dao.getAll(pageable);
 	}
 
 	@Transactional
-	public User getById(int id) 
+	public License getById(int id) 
 	{
 		return dao.getById(id);
 	}
 
 	@Transactional
-	public List<User> getByGroup(int group) 
+	public List<License> getByName(String name) 
 	{
-		return dao.getByGroup(group);
+		return dao.getByName(name);
 	}
 
 	@Transactional
-	public void save(User user) 
+	public void save(License license) 
 	{
-		dao.save(user);
+		dao.save(license);
 	}
 
 	@Transactional
-	public void update(User user) 
+	public void update(License license) 
 	{
-		dao.update(user);
+		dao.update(license);
 	}
 
 	@Transactional
-	public void delete(User user) 
+	public void delete(License license) 
 	{
-		dao.delete(user);
+		dao.delete(license);
 	}
 
 }

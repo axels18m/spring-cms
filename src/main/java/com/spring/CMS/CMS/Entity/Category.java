@@ -78,5 +78,11 @@ public class Category
 	{
 		this.catSuperior_cat = cat_superior;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id_cat=" + id_cat + ", name_cat=" + name_cat + ", description_cat=" + description_cat
+				+ ", date_cat=" + date_cat + ", catSuperior_cat=" + catSuperior_cat + "]";
+	}
 	
 }

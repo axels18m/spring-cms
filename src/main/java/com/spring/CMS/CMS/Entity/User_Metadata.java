@@ -77,5 +77,11 @@ public class User_Metadata
 	{
 		this.type_metada = type_metada;
 	}
+
+	@Override
+	public String toString() {
+		return "User_Metadata [id_metadata=" + id_metadata + ", idUser_metadata=" + idUser_metadata + ", key_metadata="
+				+ key_metadata + ", value_metada=" + value_metada + ", type_metada=" + type_metada + "]";
+	}
 	
 }

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.spring.CMS.CMS.DAO.ContentDAO;
@@ -20,7 +21,7 @@ public class ContentDAOImpl implements ContentDAO
 	private Session session = em.unwrap(Session.class);
 
 	@Override
-	public List<Content> getAll() 
+	public List<Content> getAll(Pageable pageable)
 	{
 		Query<Content> query = session.createQuery("from content", Content.class);
 		return query.getResultList();
@@ -40,19 +41,19 @@ public class ContentDAOImpl implements ContentDAO
 	}
 
 	@Override
-	public void save(ContentDAO content) 
+	public void save(Content content) 
 	{
 		session.saveOrUpdate(content);
 	}
 
 	@Override
-	public void update(ContentDAO content) 
+	public void update(Content content) 
 	{
 		session.saveOrUpdate(content);
 	}
 
 	@Override
-	public void delete(ContentDAO content) 
+	public void delete(Content content) 
 	{
 		session.delete(content);
 	}

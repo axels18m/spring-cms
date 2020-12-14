@@ -77,5 +77,11 @@ public class Post_Metadata
 	{
 		this.type_postmet = type_postmet;
 	}
+
+	@Override
+	public String toString() {
+		return "Post_Metadata [id_postmet=" + id_postmet + ", idPost_postmet=" + idPost_postmet + ", key_postmet="
+				+ key_postmet + ", value_postmet=" + value_postmet + ", type_postmet=" + type_postmet + "]";
+	}
 	
 }

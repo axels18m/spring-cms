@@ -88,6 +88,11 @@ public class Comment
 	{
 		this.answer_cmmt = answer_commt;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Comment [id_commt=" + id_commt + ", comment_cmmt=" + comment_cmmt + ", idPost_cmmt=" + idPost_cmmt
+				+ ", idUser_cmmt=" + idUser_cmmt + ", date_cmmt=" + date_cmmt + ", answer_cmmt=" + answer_cmmt + "]";
+	}
 	
 }

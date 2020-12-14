@@ -3,6 +3,7 @@ package com.spring.CMS.CMS.Service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +18,9 @@ public class ContentServiceImpl implements ContentService
 	private ContentDAO dao;
 	
 	@Transactional
-	public List<Content> getAll() 
+	public List<Content> getAll(Pageable pageable)
 	{
-		return dao.getAll();
+		return dao.getAll(pageable);
 	}
 
 	@Transactional
@@ -35,19 +36,19 @@ public class ContentServiceImpl implements ContentService
 	}
 
 	@Transactional
-	public void save(ContentDAO content) 
+	public void save(Content content) 
 	{
 		dao.save(content);
 	}
 
 	@Transactional
-	public void update(ContentDAO content) 
+	public void update(Content content) 
 	{
 		dao.update(content);
 	}
 
 	@Transactional
-	public void delete(ContentDAO content) 
+	public void delete(Content content) 
 	{
 		dao.delete(content);
 	}

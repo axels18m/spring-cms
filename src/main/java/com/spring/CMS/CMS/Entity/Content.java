@@ -63,5 +63,10 @@ public class Content
 	{
 		this.idPost_content = idPost_content;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Content [id_content=" + id_content + ", type_content=" + type_content + ", description_content="
+				+ description_content + ", idPost_content=" + idPost_content + "]";
+	}
 }

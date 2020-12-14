@@ -7,50 +7,50 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.CMS.CMS.DAO.UserDAO;
-import com.spring.CMS.CMS.Entity.User;
-import com.spring.CMS.CMS.Service.UserService;
+import com.spring.CMS.CMS.DAO.GroupDAO;
+import com.spring.CMS.CMS.Entity.Group;
+import com.spring.CMS.CMS.Service.GroupService;
 
 @Service
-public class UserServiceImpl implements UserService
+public class GroupServiceImpl implements GroupService
 {
 	@Autowired
-	private UserDAO dao;
+	private GroupDAO dao;
 
 	@Transactional
-	public List<User> getAll(Pageable pageable) 
+	public List<Group> getAll(Pageable pageable)
 	{
 		return dao.getAll(pageable);
 	}
 
 	@Transactional
-	public User getById(int id) 
+	public Group getById(int id) 
 	{
 		return dao.getById(id);
 	}
 
 	@Transactional
-	public List<User> getByGroup(int group) 
+	public List<Group> getByName(String name) 
 	{
-		return dao.getByGroup(group);
+		return dao.getByName(name);
 	}
 
 	@Transactional
-	public void save(User user) 
+	public void save(Group group) 
 	{
-		dao.save(user);
+		dao.save(group);
 	}
 
 	@Transactional
-	public void update(User user) 
+	public void update(Group group) 
 	{
-		dao.update(user);
+		dao.update(group);
 	}
 
 	@Transactional
-	public void delete(User user) 
+	public void delete(Group group) 
 	{
-		dao.delete(user);
+		dao.delete(group);
 	}
 
 }

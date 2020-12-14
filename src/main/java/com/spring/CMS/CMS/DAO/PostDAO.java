@@ -3,11 +3,14 @@ package com.spring.CMS.CMS.DAO;
 import java.util.Date;
 import java.util.List;
 
-import com.spring.CMS.CMS.Entity.Post;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 
-public interface PostDAO 
+import com.spring.CMS.CMS.Entity.Post;
+import com.spring.CMS.CMS.Mapper.BaseRep;
+
+public interface PostDAO extends BaseRep<Post>
 {
-	public List<Post> getAll();
+	public List<Post> getAll(Pageable pageable);
 	public Post getById(int post);
 	public List<Post> getByUser(int user);
 	public List<Post> getByCategory(int category);

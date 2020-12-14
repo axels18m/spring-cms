@@ -89,6 +89,12 @@ public class User
 	{
 		this.group_user = group_user;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id_user=" + id_user + ", name_user=" + name_user + ", lname_user=" + lname_user + ", email_user="
+				+ email_user + ", pass_user=" + pass_user + ", group_user=" + group_user + "]";
+	}
 }
 
 

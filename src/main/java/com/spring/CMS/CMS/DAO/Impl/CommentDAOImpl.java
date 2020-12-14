@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.spring.CMS.CMS.DAO.CommentDAO;
@@ -21,7 +22,7 @@ public class CommentDAOImpl implements CommentDAO
 	private Session session = em.unwrap(Session.class);
 	
 	@Override
-	public List<Comment> getAll() 
+	public List<Comment> getAll(Pageable pageable)
 	{
 		Query<Comment> query =  session.createQuery("from comment", Comment.class);
 		return query.getResultList();

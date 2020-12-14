@@ -2,11 +2,14 @@ package com.spring.CMS.CMS.DAO;
 
 import java.util.List;
 
-import com.spring.CMS.CMS.Entity.User;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 
-public interface UserDAO 
+import com.spring.CMS.CMS.Entity.User;
+import com.spring.CMS.CMS.Mapper.BaseRep;
+
+public interface UserDAO extends BaseRep<User>
 {
-	public List<User> getAll();
+	public List<User> getAll(Pageable pageable);
 	public User getById(int id);
 	public List<User> getByGroup(int group);
 	public void save(User user);

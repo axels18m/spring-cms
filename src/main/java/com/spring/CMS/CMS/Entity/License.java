@@ -41,6 +41,9 @@ public class License
 	{
 		this.name_license = name_license;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "License [id_license=" + id_license + ", name_license=" + name_license + "]";
+	}
 }

@@ -41,4 +41,11 @@ public class Group
 	{
 		this.name_group = name_group;
 	}
+
+	@Override
+	public String toString() {
+		return "Group [id_group=" + id_group + ", name_group=" + name_group + "]";
+	}
+	
+	
 }
