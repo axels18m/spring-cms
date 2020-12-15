@@ -49,15 +49,17 @@ public class CommentServiceImpl implements CommentService
 	}
 
 	@Transactional
-	public void save(Comment comment) 
+	public Comment save(Comment comment) 
 	{
 		dao.save(comment);
+		return comment;
 	}
 
 	@Transactional
-	public void update(Comment comment) 
+	public Comment update(Comment comment) 
 	{
 		dao.update(comment);
+		return comment;
 	}
 
 	@Transactional

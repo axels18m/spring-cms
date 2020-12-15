@@ -18,11 +18,11 @@ public class LicenseDAOIml implements LicenseDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<License> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<License> query = session.createQuery("from post", License.class);
 		return query.getResultList();
 	}
@@ -30,31 +30,38 @@ public class LicenseDAOIml implements LicenseDAO
 	@Override
 	public License getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(License.class, id);
 	}
 
 	@Override
 	public List<License> getByName(String name) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<License> query = session.createQuery("from post where license.name_lic = '" + name + "'", License.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(License license) 
+	public License save(License license) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(license);
+		return license;
 	}
 
 	@Override
-	public void update(License license) 
+	public License update(License license) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(license);
+		return license;
 	}
 
 	@Override
 	public void delete(License license) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(license);
 	}
 

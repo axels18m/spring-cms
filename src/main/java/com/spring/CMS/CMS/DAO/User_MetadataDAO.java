@@ -13,7 +13,7 @@ public interface User_MetadataDAO extends BaseRep<User_Metadata>
 	public List<User_Metadata> getByKey(String key);
 	public List<User_Metadata> getByType(String type);
 	public User_Metadata getById(int id);
-	public void save(User_Metadata user);
-	public void update(User_Metadata user);
+	public User_Metadata save(User_Metadata user);
+	public User_Metadata update(User_Metadata user);
 	public void delete(User_Metadata user);
 }

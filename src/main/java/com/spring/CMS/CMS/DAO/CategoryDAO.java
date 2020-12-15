@@ -12,7 +12,7 @@ public interface CategoryDAO extends BaseRep<Category>
 	public List<Category> getAll(Pageable pageable);
 	public Category getById(int id);
 	public List<Category> getByCatSuperior(int superior);
-	public void save(Category category);
-	public void update(Category category);
+	public Category save(Category category);
+	public Category update(Category category);
 	public void delete(Category category);
 }

@@ -9,6 +9,7 @@ public interface BaseRep<T>
 {
 	public List<T> getAll(Pageable pageable);
 	public T getById(int id);
-	public void save(T object);
-	public void update(T object);
+	public T save(T object);
+	public T update(T object);
+	public void delete(T object);
 }

@@ -18,11 +18,11 @@ public class CategoryDAOImpl implements CategoryDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<Category> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Category> query = session.createQuery("from category", Category.class);
 		return query.getResultList();
 	}
@@ -30,31 +30,38 @@ public class CategoryDAOImpl implements CategoryDAO
 	@Override
 	public Category getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Category.class, id);
 	}
 
 	@Override
 	public List<Category> getByCatSuperior(int superior) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Category> query = session.createQuery("from category where category.catSuperior_cat = " + superior, Category.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(Category category) 
+	public Category save(Category category) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(category);
+		return category;
 	}
 
 	@Override
-	public void update(Category category) 
+	public Category update(Category category) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(category);
+		return category;
 	}
 
 	@Override
 	public void delete(Category category) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(category);
 	}
 	

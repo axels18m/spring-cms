@@ -16,7 +16,7 @@ public interface PostDAO extends BaseRep<Post>
 	public List<Post> getByCategory(int category);
 	public List<Post> getByStartedDate(Date start);
 	public List<Post> getByEndDate(Date end);
-	public void save(Post post);
-	public void update(Post post);
+	public Post save(Post post);
+	public Post update(Post post);
 	public void delete(Post post);
 }

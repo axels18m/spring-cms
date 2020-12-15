@@ -18,11 +18,11 @@ public class ContentDAOImpl implements ContentDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<Content> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Content> query = session.createQuery("from content", Content.class);
 		return query.getResultList();
 	}
@@ -30,31 +30,38 @@ public class ContentDAOImpl implements ContentDAO
 	@Override
 	public Content getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Content.class, id);
 	}
 
 	@Override
 	public List<Content> getByPost(int post) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Content> query = session.createQuery("from content where content.idPost_content = " + post, Content.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(Content content) 
+	public Content save(Content content) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(content);
+		return content;
 	}
 
 	@Override
-	public void update(Content content) 
+	public Content update(Content content) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(content);
+		return content;
 	}
 
 	@Override
 	public void delete(Content content) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(content);
 	}
 

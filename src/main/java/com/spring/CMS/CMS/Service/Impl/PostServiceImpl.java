@@ -56,15 +56,17 @@ public class PostServiceImpl implements PostService
 	}
 
 	@Transactional
-	public void save(Post post) 
+	public Post save(Post post) 
 	{
 		dao.save(post);
+		return post;
 	}
 
 	@Transactional
-	public void update(Post post) 
+	public Post update(Post post) 
 	{
 		dao.update(post);
+		return post;
 	}
 
 	@Transactional

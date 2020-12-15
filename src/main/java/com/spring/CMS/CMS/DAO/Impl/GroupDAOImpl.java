@@ -18,11 +18,11 @@ public class GroupDAOImpl implements GroupDAO
 {
 	@Autowired 
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<Group> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Group> query = session.createQuery("from group", Group.class);
 		return query.getResultList();		
 	}
@@ -30,31 +30,38 @@ public class GroupDAOImpl implements GroupDAO
 	@Override
 	public Group getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Group.class, id);
 	}
 
 	@Override
 	public List<Group> getByName(String name) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Group> query = session.createQuery("from group where group.name_group = '" + name + "'", Group.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(Group group) 
+	public Group save(Group group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(group);
+		return group;
 	}
 
 	@Override
-	public void update(Group group) 
+	public Group update(Group group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(group);
+		return group;
 	}
 
 	@Override
 	public void delete(Group group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(group);
 	}
 

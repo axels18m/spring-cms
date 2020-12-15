@@ -12,7 +12,7 @@ public interface LicenseDAO extends BaseRep<License>
 	public List<License> getAll(Pageable pageable);
 	public License getById(int id);
 	public List<License> getByName(String name);
-	public void save(License license);
-	public void update(License license);
+	public License save(License license);
+	public License update(License license);
 	public void delete(License license);
 }

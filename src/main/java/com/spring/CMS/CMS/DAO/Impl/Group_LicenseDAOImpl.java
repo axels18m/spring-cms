@@ -18,11 +18,11 @@ public class Group_LicenseDAOImpl implements Group_LicenseDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<Group_License> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Group_License> query = session.createQuery("from group_license", Group_License.class);
 		return query.getResultList();
 	}
@@ -30,31 +30,38 @@ public class Group_LicenseDAOImpl implements Group_LicenseDAO
 	@Override
 	public Group_License getById(int group) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Group_License.class, group);
 	}
 
 	@Override
 	public Group_License getByLicense(int license) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Group_License> query = session.createQuery("from group_license where group_license.idLicense_gpolic = " + license, Group_License.class);
 		return query.getSingleResult();
 	}
 
 	@Override
-	public void save(Group_License group) 
+	public Group_License save(Group_License group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(group);
+		return group;
 	}
 
 	@Override
-	public void update(Group_License group) 
+	public Group_License update(Group_License group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(group);
+		return group;
 	}
 
 	@Override
 	public void delete(Group_License group) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(group);
 	}
 

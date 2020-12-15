@@ -36,15 +36,17 @@ public class Group_LicenseServiceImpl implements Group_LicenseService
 	}
 
 	@Transactional
-	public void save(Group_License group) 
+	public Group_License save(Group_License group) 
 	{
 		dao.save(group);
+		return group;
 	}
 
 	@Transactional
-	public void update(Group_License group) 
+	public Group_License update(Group_License group) 
 	{
 		dao.update(group);
+		return group;
 	}
 
 	@Transactional

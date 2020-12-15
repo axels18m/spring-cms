@@ -13,7 +13,7 @@ public interface GroupDAO extends BaseRep<Group>
 	public List<Group> getAll(Pageable pageable);
 	public Group getById(int id);
 	public List<Group> getByName(String name);
-	public void save(Group group);
-	public void update(Group group);
+	public Group save(Group group);
+	public Group update(Group group);
 	public void delete(Group group);
 }

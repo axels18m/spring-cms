@@ -36,15 +36,17 @@ public class LicenseServiceImpl implements LicenseService
 	}
 
 	@Transactional
-	public void save(License license) 
+	public License save(License license) 
 	{
 		dao.save(license);
+		return license;
 	}
 
 	@Transactional
-	public void update(License license) 
+	public License update(License license) 
 	{
 		dao.update(license);
+		return license;
 	}
 
 	@Transactional

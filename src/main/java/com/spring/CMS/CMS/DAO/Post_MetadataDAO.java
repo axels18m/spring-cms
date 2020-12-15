@@ -13,7 +13,7 @@ public interface Post_MetadataDAO extends BaseRep<Post_Metadata>
 	public List<Post_Metadata> getByKey(String key);
 	public List<Post_Metadata> getByType(String type);
 	public Post_Metadata getById(int id);
-	public void save(Post_Metadata post);
-	public void update(Post_Metadata post);
+	public Post_Metadata save(Post_Metadata post);
+	public Post_Metadata update(Post_Metadata post);
 	public void delete(Post_Metadata post);
 }

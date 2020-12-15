@@ -15,7 +15,7 @@ public interface CommentDAO extends BaseRep<Comment>
 	public List<Comment> getByUser(int user);
 	public Comment getById(int id);
 	public List<Comment> getByDate(Date date);
-	public void save(Comment comment);
-	public void update(Comment comment);
+	public Comment save(Comment comment);
+	public Comment update(Comment comment);
 	public void delete(Comment comment);
 }

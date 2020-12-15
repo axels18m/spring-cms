@@ -42,15 +42,17 @@ public class User_MetadataServiceImpl implements User_MetadataService
 	}
 
 	@Transactional
-	public void save(User_Metadata user) 
+	public User_Metadata save(User_Metadata user) 
 	{
 		dao.save(user);
+		return user;
 	}
 
 	@Transactional
-	public void update(User_Metadata user) 
+	public User_Metadata update(User_Metadata user) 
 	{
 		dao.update(user);
+		return user;
 	}
 
 	@Transactional

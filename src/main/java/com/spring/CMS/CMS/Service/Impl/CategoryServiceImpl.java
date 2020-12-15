@@ -36,15 +36,17 @@ public class CategoryServiceImpl implements CategoryService
 	}
 
 	@Transactional
-	public void save(Category category) 
+	public Category save(Category category) 
 	{
 		dao.save(category);
+		return category;
 	}
 
 	@Transactional
-	public void update(Category category) 
+	public Category update(Category category) 
 	{
 		dao.update(category);
+		return category;
 	}
 
 	@Transactional

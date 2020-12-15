@@ -18,23 +18,27 @@ public class User_MetadataDAOImpl implements User_MetadataDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 	
 	@Override
 	public List<User_Metadata> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<User_Metadata> query = session.createQuery("from user_metadata", User_Metadata.class);
 		return query.getResultList();
 	}
+	
 	@Override
 	public List<User_Metadata> getByKey(String key) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<User_Metadata> query = session.createQuery("from user_metadata where user_metadata.key_metadata = '" + key + "'", User_Metadata.class);
 		return query.getResultList();
 	}
+	
 	@Override
 	public List<User_Metadata> getByType(String type) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<User_Metadata> query = session.createQuery("from user_metadata where user_metadata.type_metadata = '" + type + "'", User_Metadata.class);
 		return query.getResultList();
 	}
@@ -42,24 +46,30 @@ public class User_MetadataDAOImpl implements User_MetadataDAO
 	@Override
 	public User_Metadata getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(User_Metadata.class, id);
 	}
 	
 	@Override
-	public void save(User_Metadata user) 
+	public User_Metadata save(User_Metadata user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(user);
+		return user;
 	}
 	
 	@Override
-	public void update(User_Metadata user) 
+	public User_Metadata update(User_Metadata user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(user);
+		return user;
 	}
 	
 	@Override
 	public void delete(User_Metadata user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(user);
 	}
 }

@@ -36,15 +36,17 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Transactional
-	public void save(User user) 
+	public User save(User user) 
 	{
 		dao.save(user);
+		return user;
 	}
 
 	@Transactional
-	public void update(User user) 
+	public User update(User user) 
 	{
 		dao.update(user);
+		return user;
 	}
 
 	@Transactional

@@ -19,11 +19,11 @@ public class PostDAOImpl implements PostDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 
 	@Override
 	public List<Post> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Post> query = session.createQuery("from post", Post.class);
 		return query.getResultList();
 	}
@@ -31,12 +31,14 @@ public class PostDAOImpl implements PostDAO
 	@Override
 	public Post getById(int post) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Post.class, post);
 	}
 
 	@Override
 	public List<Post> getByUser(int user) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Post> query = session.createQuery("from post where post.idUser_post = " + user, Post.class);
 		return query.getResultList();
 	}
@@ -44,6 +46,7 @@ public class PostDAOImpl implements PostDAO
 	@Override
 	public List<Post> getByCategory(int category) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Post> query = session.createQuery("from post where post.category_post = " + category, Post.class);
 		return query.getResultList();
 	}
@@ -51,6 +54,7 @@ public class PostDAOImpl implements PostDAO
 	@Override
 	public List<Post> getByStartedDate(Date start) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Post> query = session.createQuery("from post where post.startedDate_post = '" + start + "'", Post.class);
 		return query.getResultList();
 	}
@@ -58,25 +62,31 @@ public class PostDAOImpl implements PostDAO
 	@Override
 	public List<Post> getByEndDate(Date end) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Post> query = session.createQuery("from post where post.endDate_post = '" + end + "'", Post.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(Post post) 
+	public Post save(Post post) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(post);
+		return post;
 	}
 
 	@Override
-	public void update(Post post) 
+	public Post update(Post post) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(post);
+		return post;
 	}
 
 	@Override
 	public void delete(Post post) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(post);
 	}
 

@@ -42,15 +42,17 @@ public class Post_MetadataServiceImpl implements Post_MetadataService
 	}
 
 	@Transactional
-	public void save(Post_Metadata post) 
+	public Post_Metadata save(Post_Metadata post) 
 	{
 		dao.save(post);
+		return post;
 	}
 
 	@Transactional
-	public void update(Post_Metadata post) 
+	public Post_Metadata update(Post_Metadata post) 
 	{
 		dao.update(post);
+		return post;
 	}
 
 	@Transactional

@@ -36,15 +36,17 @@ public class ContentServiceImpl implements ContentService
 	}
 
 	@Transactional
-	public void save(Content content) 
+	public Content save(Content content) 
 	{
 		dao.save(content);
+		return content;
 	}
 
 	@Transactional
-	public void update(Content content) 
+	public Content update(Content content) 
 	{
 		dao.update(content);
+		return content;
 	}
 
 	@Transactional

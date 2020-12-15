@@ -18,11 +18,14 @@ public class UserDAOImpl implements UserDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
+	
+	/* em.unwrap(Session.class) returns the corresponding classes of the JPA implementation. We have to open a 
+	 * session for each query to get the methods inside it.*/
 	
 	@Override
 	public List<User> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<User> query = session.createQuery("from user", User.class);
 		return query.getResultList();
 	}
@@ -30,31 +33,38 @@ public class UserDAOImpl implements UserDAO
 	@Override
 	public User getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(User.class, id);
 	}
 
 	@Override
 	public List<User> getByGroup(int group) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<User> query = session.createQuery("from user where user.group_user = " + group, User.class);
 		return query.getResultList();
 	}
 
 	@Override
-	public void save(User user) 
+	public User save(User user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(user);
+		return user;
 	}
 
 	@Override
-	public void update(User user) 
+	public User update(User user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(user);
+		return user;
 	}
 
 	@Override
 	public void delete(User user) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(user);
 	}
 	

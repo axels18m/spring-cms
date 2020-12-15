@@ -36,15 +36,17 @@ public class GroupServiceImpl implements GroupService
 	}
 
 	@Transactional
-	public void save(Group group) 
+	public Group save(Group group) 
 	{
 		dao.save(group);
+		return group;
 	}
 
 	@Transactional
-	public void update(Group group) 
+	public Group update(Group group) 
 	{
 		dao.update(group);
+		return group;
 	}
 
 	@Transactional

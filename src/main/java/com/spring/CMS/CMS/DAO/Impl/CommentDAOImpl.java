@@ -19,11 +19,11 @@ public class CommentDAOImpl implements CommentDAO
 {
 	@Autowired
 	private EntityManager em;
-	private Session session = em.unwrap(Session.class);
 	
 	@Override
 	public List<Comment> getAll(Pageable pageable)
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Comment> query =  session.createQuery("from comment", Comment.class);
 		return query.getResultList();
 	}
@@ -31,39 +31,54 @@ public class CommentDAOImpl implements CommentDAO
 	@Override
 	public List<Comment> getByPost(int post) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Comment> query =  session.createQuery("from comment where comment.idPost_cmmt = " + post, Comment.class);
 		return query.getResultList();
 	}
+	
 	@Override
 	public List<Comment> getByUser(int user) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Comment> query =  session.createQuery("from comment where comment.idUser_cmmt = " + user, Comment.class);
 		return query.getResultList();
 	}
+	
 	@Override
 	public Comment getById(int id) 
 	{
+		Session session = em.unwrap(Session.class);
 		return session.get(Comment.class, id);
 	}
+	
 	@Override
 	public List<Comment> getByDate(Date date) 
 	{
+		Session session = em.unwrap(Session.class);
 		Query<Comment> query =  session.createQuery("from comment where comment.date_cmmt = '" + date + "'", Comment.class);
 		return query.getResultList();
 	}
+	
 	@Override
-	public void save(Comment comment) 
+	public Comment save(Comment comment) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(comment);
+		return comment;
 	}
+	
 	@Override
-	public void update(Comment comment) 
+	public Comment update(Comment comment) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.saveOrUpdate(comment);
+		return comment;
 	}
+	
 	@Override
 	public void delete(Comment comment) 
 	{
+		Session session = em.unwrap(Session.class);
 		session.delete(comment);
 	}
 	
