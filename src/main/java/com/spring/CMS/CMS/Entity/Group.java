@@ -10,42 +10,42 @@ public class Group
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idGroup;
+	private int id_group;
 	
-	private String nameGroup;
+	private String name_group;
 	
-	public Group(int id, String name)
+	public Group(int id_group, String name_group) 
 	{
-		this.idGroup = id;
-		this.nameGroup = name;
+		this.id_group = id_group;
+		this.name_group = name_group;
 	}
-	
+
 	public Group() {}
 
-	public int getIdGroup() 
+	public int getId_group() 
 	{
-		return idGroup;
+		return id_group;
 	}
 
-	public void setIdGroup(int idGroup) 
+	public void setId_group(int id_group) 
 	{
-		this.idGroup = idGroup;
+		this.id_group = id_group;
 	}
 
-	public String getNameGroup() 
+	public String getName_group() 
 	{
-		return nameGroup;
+		return name_group;
 	}
 
-	public void setNameGroup(String nameGroup) 
+	public void setName_group(String name_group) 
 	{
-		this.nameGroup = nameGroup;
+		this.name_group = name_group;
 	}
 
 	@Override
 	public String toString() 
 	{
-		return "Group [idGroup=" + idGroup + ", nameGroup=" + nameGroup + "]";
+		return "Group [id_group=" + id_group + ", name_group=" + name_group + "]";
 	}
 	
 }

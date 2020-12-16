@@ -12,79 +12,77 @@ public class Category
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCat;
-	private String nameCat;
-	private String descriptionCat;
-	private Date dateCat;
-	private int catSuperiorCat;
+	private int id_cat;
+	private String name_cat;
+	private String description_cat;
+	private Date date_cat;
+	private int cat_superior_cat;
 	
-	public Category(int id, String name, String description, Date date, int cat)
+	public Category(int id_cat, String name_cat, String description_cat, Date date_cat, int cat_superior_cat)
 	{
-		this.idCat = id;
-		this.nameCat = name;
-		this.descriptionCat = description;
-		this.dateCat = date;
-		this.catSuperiorCat = cat;
+		this.id_cat = id_cat;
+		this.name_cat = name_cat;
+		this.description_cat = description_cat;
+		this.date_cat = date_cat;
+		this.cat_superior_cat = cat_superior_cat;
 	}
-	
+
 	public Category() {}
 
-	public int getIdCat() 
+	public int getId_cat() 
 	{
-		return idCat;
+		return id_cat;
 	}
 
-	public void setIdCat(int id_cat) 
+	public void setId_cat(int id_cat)
 	{
-		this.idCat = id_cat;
+		this.id_cat = id_cat;
 	}
 
-	public String getNameCat() 
+	public String getName_cat() 
 	{
-		return nameCat;
+		return name_cat;
 	}
 
-	public void setNameCat(String nameCat) 
+	public void setName_cat(String name_cat) 
 	{
-		this.nameCat = nameCat;
+		this.name_cat = name_cat;
 	}
 
-	public String getDescriptionCat() 
+	public String getDescription_cat() 
 	{
-		return descriptionCat;
+		return description_cat;
 	}
 
-	public void setDescriptionCat(String descriptionCat) 
+	public void setDescription_cat(String description_cat) 
 	{
-		this.descriptionCat = descriptionCat;
+		this.description_cat = description_cat;
 	}
 
-	public Date getDateCat() 
+	public Date getDate_cat() 
 	{
-		return dateCat;
+		return date_cat;
 	}
 
-	public void setDateCat(Date dateCat) 
+	public void setDate_cat(Date date_cat) 
 	{
-		this.dateCat = dateCat;
+		this.date_cat = date_cat;
 	}
 
-	public int getCatSuperiorCat() 
+	public int getCat_superior_cat() 
 	{
-		return catSuperiorCat;
+		return cat_superior_cat;
 	}
 
-	public void setCatSuperiorCat(int catSuperiorCat) 
+	public void setCat_superior_cat(int cat_superior_cat) 
 	{
-		this.catSuperiorCat = catSuperiorCat;
+		this.cat_superior_cat = cat_superior_cat;
 	}
 
 	@Override
-	public String toString() 
+	public String toString()
 	{
-		return "Category [idCat=" + idCat + ", nameCat=" + nameCat + ", descriptionCat=" + descriptionCat + ", dateCat="
-				+ dateCat + ", catSuperiorCat=" + catSuperiorCat + "]";
+		return "Category [id_cat=" + id_cat + ", name_cat=" + name_cat + ", description_cat=" + description_cat
+				+ ", date_cat=" + date_cat + ", cat_superior_cat=" + cat_superior_cat + "]";
 	}
-	
-	
 }

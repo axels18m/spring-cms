@@ -13,26 +13,26 @@
         <div class="row">
             <div class="col-12">
                 <form th:action = "@{/admin/category}" th:object = "${category}" th:method = "post">
-                    <input type="hidden" th:field = "*{idCat}">
+                    <input type="hidden" th:field = "*{id_cat}">
 
                     <div class="form-group">
                         <label for="name_cat">Nombre</label>
-                        <input class="form-control" type="text" th:value = "*{nameCat}" th:field = "*{nameCat}" placeholder = "Nombre">
+                        <input class="form-control" type="text" th:value = "*{name_cat}" th:field = "*{name_cat}" placeholder = "Nombre">
                     </div>
 
                     <div class="form-group">
                         <label for="description_cat">Descripcion</label>
-                        <input class="form-control" type="text" th:value = "*{descriptionCat}" th:field = "*{descriptionCat}" placeholder = "Descripcion">
+                        <input class="form-control" type="text" th:value = "*{description_cat}" th:field = "*{description_cat}" placeholder = "Descripcion">
                     </div>
 
                     <div class="form-group">
                         <label for="date_cat">Fecha</label>
-                        <input class="form-control" type="date" th:value = "*{dateCat}" th:field = "*{dateCat}">
+                        <input class="form-control" type="date" th:value = "*{date_cat}" th:field = "*{date_cat}">
                     </div>
 
                     <div class="form-group">
-                        <label for="catSuperior_cat">Categoria Superior</label>
-                        <input class="form-control" type="int" th:value = "*{catSuperiorCat}" th:field = "*{catSuperiorCat}" placeholder = "1">
+                        <label for="cat_superior_cat">Categoria Superior</label>
+                        <input class="form-control" type="int" th:value = "*{cat_superior_cat}" th:field = "*{cat_superior_cat}" placeholder = "1">
                     </div>
 
                     <div class="form-group">

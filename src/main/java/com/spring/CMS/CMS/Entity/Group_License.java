@@ -10,42 +10,37 @@ public class Group_License
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idGpolic;
+	private int id_gpolic;
 	
-	private int idLicenseGpolic;
+	private int id_license_gpolic;
 	
-	public Group_License(int group, int license)
+	public Group_License(int id_gpolic, int id_license_gpolic) 
 	{
-		this.idGpolic = group;
-		this.idLicenseGpolic = license;
+		this.id_gpolic = id_gpolic;
+		this.id_license_gpolic = id_license_gpolic;
 	}
-	
+
 	public Group_License() {}
 
-	public int getIdGpolic() 
+	public int getId_gpolic() 
 	{
-		return idGpolic;
+		return id_gpolic;
 	}
 
-	public void setIdGpolic(int idGpolic) 
+	public void setId_gpolic(int id_gpolic) 
 	{
-		this.idGpolic = idGpolic;
+		this.id_gpolic = id_gpolic;
 	}
 
-	public int getIdLicenseGpolic() 
+	public int getId_License_gpolic()
 	{
-		return idLicenseGpolic;
+		return id_license_gpolic;
 	}
 
-	public void setIdLicenseGpolic(int idLicenseGpolic) 
+	public void setId_license_gpolic(int id_license_gpolic) 
 	{
-		this.idLicenseGpolic = idLicenseGpolic;
+		this.id_license_gpolic = id_license_gpolic;
 	}
-
-	@Override
-	public String toString() 
-	{
-		return "Group_License [idGpolic=" + idGpolic + ", idLicenseGpolic=" + idLicenseGpolic + "]";
-	}	
+	
 	
 }

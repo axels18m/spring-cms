@@ -10,67 +10,67 @@ public class Content
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idContent;
+	private int id_content;
 	
-	private String typeContent;
-	private String descriptionContent;
-	private int idPostContent;
+	private String type_content;
+	private String description_content;
+	private int id_post_content;
 	
-	public Content(int content, String type, String description, int post)
+	public Content(int id_content, String type_content, String description_content, int id_post_content) 
 	{
-		this.idContent = content;
-		this.typeContent = type;
-		this.descriptionContent = description;
-		this.idPostContent = post;
+		this.id_content = id_content;
+		this.type_content = type_content;
+		this.description_content = description_content;
+		this.id_post_content = id_post_content;
 	}
-	
+
 	public Content() {}
 
-	public int getIdContent() 
+	public int getId_content() 
 	{
-		return idContent;
+		return id_content;
 	}
 
-	public void setIdContent(int idContent) 
+	public void setId_content(int id_content) 
 	{
-		this.idContent = idContent;
+		this.id_content = id_content;
 	}
 
-	public String getTypeContent() 
+	public String getType_content() 
 	{
-		return typeContent;
+		return type_content;
 	}
 
-	public void setTypeContent(String typeContent) 
+	public void setType_content(String type_content) 
 	{
-		this.typeContent = typeContent;
+		this.type_content = type_content;
 	}
 
-	public String getDescriptionContent() 
+	public String getDescription_content() 
 	{
-		return descriptionContent;
+		return description_content;
 	}
 
-	public void setDescriptionContent(String descriptionContent) 
+	public void setDescription_content(String description_content) 
 	{
-		this.descriptionContent = descriptionContent;
+		this.description_content = description_content;
 	}
 
-	public int getIdPostContent() 
+	public int getId_post_content() 
 	{
-		return idPostContent;
+		return id_post_content;
 	}
 
-	public void setIdPostContent(int idPostContent) 
+	public void setId_post_content(int id_post_content) 
 	{
-		this.idPostContent = idPostContent;
+		this.id_post_content = id_post_content;
 	}
 
 	@Override
 	public String toString() 
 	{
-		return "Content [idContent=" + idContent + ", typeContent=" + typeContent + ", descriptionContent="
-				+ descriptionContent + ", idPostContent=" + idPostContent + "]";
+		return "Content [id_content=" + id_content + ", type_content=" + type_content + ", description_content="
+				+ description_content + ", id_post_content=" + id_post_content + "]";
 	}
 
 }

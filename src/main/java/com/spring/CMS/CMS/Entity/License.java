@@ -10,41 +10,41 @@ public class License
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idLicense;
+	private int id_license;
 	
-	private String nameLicense;
+	private String name_license;
 	
-	public License(int id, String name)
+	public License(int id_license, String name_license) 
 	{
-		this.idLicense = id;
-		this.nameLicense = name;
+		this.id_license = id_license;
+		this.name_license = name_license;
 	}
 	
 	public License() {}
 
-	public int getIdLicense() 
+	public int getId_license() 
 	{
-		return idLicense;
+		return id_license;
 	}
 
-	public void setIdLicense(int idLicense) 
+	public void setId_license(int id_license) 
 	{
-		this.idLicense = idLicense;
+		this.id_license = id_license;
 	}
 
-	public String getNameLicense() 
+	public String getName_license() 
 	{
-		return nameLicense;
+		return name_license;
 	}
 
-	public void setNameLicense(String nameLicense) 
+	public void setName_license(String name_license) 
 	{
-		this.nameLicense = nameLicense;
+		this.name_license = name_license;
 	}
 
 	@Override
 	public String toString() 
 	{
-		return "License [idLicense=" + idLicense + ", nameLicense=" + nameLicense + "]";
+		return "License [id_license=" + id_license + ", name_license=" + name_license + "]";
 	}
 }

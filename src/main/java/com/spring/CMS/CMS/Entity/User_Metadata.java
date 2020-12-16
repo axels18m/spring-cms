@@ -10,78 +10,81 @@ public class User_Metadata
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMetadata;
+	private int id_metadata;
 	
-	private int idUserMetadata;
-	private String keyMetadata;
-	private String valueMetada;
-	private String typeMetada;
+	private int id_user_metadata;
+	private String key_metadata;
+	private String value_metada;
+	private String type_metada;
 	
-	public User_Metadata(int metadata, int user, String key, String value, String type)
+	public User_Metadata(int id_metadata, int id_user_metadata, String key_metadata, String value_metada,
+			String type_metada) 
 	{
-		this.idMetadata = metadata;
-		this.idUserMetadata = user;
-		this.keyMetadata = key;
-		this.valueMetada = value;
-		this.typeMetada = type;
+		this.id_metadata = id_metadata;
+		this.id_user_metadata = id_user_metadata;
+		this.key_metadata = key_metadata;
+		this.value_metada = value_metada;
+		this.type_metada = type_metada;
 	}
-	
+
 	public User_Metadata() {}
 
-	public int getIdMetadata() 
+	public int getId_metadata() 
 	{
-		return idMetadata;
+		return id_metadata;
 	}
 
-	public void setIdMetadata(int idMetadata) 
+	public void setId_metadata(int id_metadata) 
 	{
-		this.idMetadata = idMetadata;
+		this.id_metadata = id_metadata;
 	}
 
-	public int getIdUserMetadata() 
+	public int getId_user_metadata() 
 	{
-		return idUserMetadata;
+		return id_user_metadata;
 	}
 
-	public void setIdUserMetadata(int idUserMetadata) 
+	public void setId_user_metadata(int id_user_metadata) 
 	{
-		this.idUserMetadata = idUserMetadata;
+		this.id_user_metadata = id_user_metadata;
 	}
 
-	public String getKeyMetadata() 
+	public String getKey_metadata() 
 	{
-		return keyMetadata;
+		return key_metadata;
 	}
 
-	public void setKeyMetadata(String keyMetadata) 
+	public void setKey_metadata(String key_metadata) 
 	{
-		this.keyMetadata = keyMetadata;
+		this.key_metadata = key_metadata;
 	}
 
-	public String getValueMetada() 
+	public String getValue_metada() 
 	{
-		return valueMetada;
+		return value_metada;
 	}
 
-	public void setValueMetada(String valueMetada) 
+	public void setValue_metada(String value_metada) 
 	{
-		this.valueMetada = valueMetada;
+		this.value_metada = value_metada;
 	}
 
-	public String getTypeMetada() 
+	public String getType_metada() 
 	{
-		return typeMetada;
+		return type_metada;
 	}
 
-	public void setTypeMetada(String typeMetada) 
+	public void setType_metada(String type_metada) 
 	{
-		this.typeMetada = typeMetada;
+		this.type_metada = type_metada;
 	}
 
 	@Override
 	public String toString() 
 	{
-		return "User_Metadata [idMetadata=" + idMetadata + ", idUserMetadata=" + idUserMetadata + ", keyMetadata="
-				+ keyMetadata + ", valueMetada=" + valueMetada + ", typeMetada=" + typeMetada + "]";
+		return "User_Metadata [id_metadata=" + id_metadata + ", id_user_metadata=" + id_user_metadata
+				+ ", key_metadata=" + key_metadata + ", value_metada=" + value_metada + ", type_metada=" + type_metada
+				+ "]";
 	}
+	
 }
