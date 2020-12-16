@@ -5,46 +5,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "group_license")
 public class Group_License
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_gpolic;
+	private int idGpolic;
 	
-	private int idLicense_gpolic;
+	private int idLicenseGpolic;
 	
 	public Group_License(int group, int license)
 	{
-		this.id_gpolic = group;
-		this.idLicense_gpolic = license;
+		this.idGpolic = group;
+		this.idLicenseGpolic = license;
 	}
 	
 	public Group_License() {}
 
-	public int getId_Gpolic() 
+	public int getIdGpolic() 
 	{
-		return id_gpolic;
+		return idGpolic;
 	}
 
-	public void setId_Gpolic(int id_gpolic) 
+	public void setIdGpolic(int idGpolic) 
 	{
-		this.id_gpolic = id_gpolic;
+		this.idGpolic = idGpolic;
 	}
 
-	public int getIdLicense_Gpolic() 
+	public int getIdLicenseGpolic() 
 	{
-		return idLicense_gpolic;
+		return idLicenseGpolic;
 	}
 
-	public void setIdLicense_Gpolic(int idLicense_gpolic) 
+	public void setIdLicenseGpolic(int idLicenseGpolic) 
 	{
-		this.idLicense_gpolic = idLicense_gpolic;
+		this.idLicenseGpolic = idLicenseGpolic;
 	}
 
 	@Override
-	public String toString() {
-		return "Group_License [id_gpolic=" + id_gpolic + ", idLicense_gpolic=" + idLicense_gpolic + "]";
-	}
+	public String toString() 
+	{
+		return "Group_License [idGpolic=" + idGpolic + ", idLicenseGpolic=" + idLicenseGpolic + "]";
+	}	
 	
 }

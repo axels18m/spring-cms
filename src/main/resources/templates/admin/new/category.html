@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Categoria</title>
+    <div th:replace="cdn/generalScripts.html :: scripts"></div>
+    <div th:insert= "cdn/generalStyles.html :: styles"></div>
+</head>
+<body>
+    <header th:replace="component/admin/adminHeader"/>
+    <div class="container justify-content-center align-items-center py-4">
+        <div class="row">
+            <div class="col-12">
+                <form th:action = "@{/admin/category}" th:object = "${category}" th:method = "post">
+                    <input type="hidden" th:field = "*{idCat}">
+
+                    <div class="form-group">
+                        <label for="name_cat">Nombre</label>
+                        <input class="form-control" type="text" th:value = "*{nameCat}" th:field = "*{nameCat}" placeholder = "Nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description_cat">Descripcion</label>
+                        <input class="form-control" type="text" th:value = "*{descriptionCat}" th:field = "*{descriptionCat}" placeholder = "Descripcion">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_cat">Fecha</label>
+                        <input class="form-control" type="date" th:value = "*{dateCat}" th:field = "*{dateCat}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="catSuperior_cat">Categoria Superior</label>
+                        <input class="form-control" type="int" th:value = "*{catSuperiorCat}" th:field = "*{catSuperiorCat}" placeholder = "1">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="reset" class="btn btn-primary">Borrar</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+     </div>
+    
+
+    <footer th:replace="component/admin/adminFooter"/>
+</body>
+</html>

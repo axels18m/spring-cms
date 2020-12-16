@@ -31,21 +31,21 @@ public class UserRestController
 	
 	
 	@PutMapping({"/save", "/save/{user"})
-	@CacheEvict(value = "categories", allEntries = true)
+	//@CacheEvict(value = "categories", allEntries = true)
 	public ResponseEntity<RepBase> save(@RequestBody User user)
 	{
 		return ResponseEntity.ok(new RepBase(service.save(user)));
 	}
 	
 	@PostMapping({"/update", "/update/{user}"})
-	@CacheEvict(value = "categories", allEntries = true)
+	//@CacheEvict(value = "categories", allEntries = true)
 	public ResponseEntity<RepBase> update(@RequestBody User user)
 	{
 		return ResponseEntity.ok(new RepBase(service.save(user)));
 	}
 	
 	@GetMapping
-	@CacheEvict(value = "categories", allEntries = true) /* Update on entries change */
+	//@CacheEvict(value = "categories", allEntries = true) /* Update on entries change */
 	public ResponseEntity<List<User>> getAll(Pageable pageable)
 	{
 		return ResponseEntity.ok(service.getAll(pageable));
@@ -58,7 +58,7 @@ public class UserRestController
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{user}"})
-	@CacheEvict(value = "categories", allEntries = true)
+	//@CacheEvict(value = "categories", allEntries = true)
 	public void delete(@PathVariable User user)
 	{
 		service.delete(user);

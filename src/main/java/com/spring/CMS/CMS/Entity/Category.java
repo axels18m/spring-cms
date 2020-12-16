@@ -7,82 +7,84 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "category")
 public class Category 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_cat;
-	private String name_cat;
-	private String description_cat;
-	private Date date_cat = new Date();
-	private int catSuperior_cat;
+	private int idCat;
+	private String nameCat;
+	private String descriptionCat;
+	private Date dateCat;
+	private int catSuperiorCat;
 	
 	public Category(int id, String name, String description, Date date, int cat)
 	{
-		this.id_cat = id;
-		this.name_cat = name;
-		this.description_cat = description;
-		this.date_cat = date;
-		this.catSuperior_cat = cat;
+		this.idCat = id;
+		this.nameCat = name;
+		this.descriptionCat = description;
+		this.dateCat = date;
+		this.catSuperiorCat = cat;
 	}
 	
 	public Category() {}
 
-	public int getId_Cat() 
+	public int getIdCat() 
 	{
-		return id_cat;
+		return idCat;
 	}
 
-	public void setId_Cat(int id) 
+	public void setIdCat(int id_cat) 
 	{
-		this.id_cat = id;
+		this.idCat = id_cat;
 	}
 
-	public String getName_Cat() 
+	public String getNameCat() 
 	{
-		return name_cat;
+		return nameCat;
 	}
 
-	public void setName_Cat(String name) 
+	public void setNameCat(String nameCat) 
 	{
-		this.name_cat = name;
+		this.nameCat = nameCat;
 	}
 
-	public String getDescription_Cat() 
+	public String getDescriptionCat() 
 	{
-		return description_cat;
+		return descriptionCat;
 	}
 
-	public void setDescription_Cat(String description) 
+	public void setDescriptionCat(String descriptionCat) 
 	{
-		this.description_cat = description;
+		this.descriptionCat = descriptionCat;
 	}
 
-	public Date getDate_Cat() 
+	public Date getDateCat() 
 	{
-		return date_cat;
+		return dateCat;
 	}
 
-	public void setDate_Cat(Date date) 
+	public void setDateCat(Date dateCat) 
 	{
-		this.date_cat = date;
+		this.dateCat = dateCat;
 	}
 
-	public int getCatSuperior_Cat() 
+	public int getCatSuperiorCat() 
 	{
-		return catSuperior_cat;
+		return catSuperiorCat;
 	}
 
-	public void setCatSuperior_Cat(int cat_superior) 
+	public void setCatSuperiorCat(int catSuperiorCat) 
 	{
-		this.catSuperior_cat = cat_superior;
+		this.catSuperiorCat = catSuperiorCat;
 	}
 
 	@Override
-	public String toString() {
-		return "Category [id_cat=" + id_cat + ", name_cat=" + name_cat + ", description_cat=" + description_cat
-				+ ", date_cat=" + date_cat + ", catSuperior_cat=" + catSuperior_cat + "]";
+	public String toString() 
+	{
+		return "Category [idCat=" + idCat + ", nameCat=" + nameCat + ", descriptionCat=" + descriptionCat + ", dateCat="
+				+ dateCat + ", catSuperiorCat=" + catSuperiorCat + "]";
 	}
+	
 	
 }

@@ -5,47 +5,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "group")
 public class Group 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_group;
+	private int idGroup;
 	
-	private String name_group;
+	private String nameGroup;
 	
 	public Group(int id, String name)
 	{
-		this.id_group = id;
-		this.name_group = name;
+		this.idGroup = id;
+		this.nameGroup = name;
 	}
 	
 	public Group() {}
 
-	public int getId_Group() 
+	public int getIdGroup() 
 	{
-		return id_group;
+		return idGroup;
 	}
 
-	public void setId_Group(int id_group) 
+	public void setIdGroup(int idGroup) 
 	{
-		this.id_group = id_group;
+		this.idGroup = idGroup;
 	}
 
-	public String getName_Group() 
+	public String getNameGroup() 
 	{
-		return name_group;
+		return nameGroup;
 	}
 
-	public void setName_Group(String name_group) 
+	public void setNameGroup(String nameGroup) 
 	{
-		this.name_group = name_group;
+		this.nameGroup = nameGroup;
 	}
 
 	@Override
-	public String toString() {
-		return "Group [id_group=" + id_group + ", name_group=" + name_group + "]";
+	public String toString() 
+	{
+		return "Group [idGroup=" + idGroup + ", nameGroup=" + nameGroup + "]";
 	}
-	
 	
 }

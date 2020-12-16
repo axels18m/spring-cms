@@ -19,7 +19,7 @@ import com.spring.CMS.CMS.Entity.Comment;
 import com.spring.CMS.CMS.Service.CommentService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/comment")
 public class CommentRestController 
 {
 	@Autowired

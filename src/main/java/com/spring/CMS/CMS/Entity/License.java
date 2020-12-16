@@ -5,45 +5,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "license")
 public class License 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_license;
+	private int idLicense;
 	
-	private String name_license;
+	private String nameLicense;
 	
 	public License(int id, String name)
 	{
-		this.id_license = id;
-		this.name_license = name;
+		this.idLicense = id;
+		this.nameLicense = name;
 	}
 	
 	public License() {}
 
-	public int getId_License() 
+	public int getIdLicense() 
 	{
-		return id_license;
+		return idLicense;
 	}
 
-	public void setId_License(int id_license) 
+	public void setIdLicense(int idLicense) 
 	{
-		this.id_license = id_license;
+		this.idLicense = idLicense;
 	}
 
-	public String getName_License() 
+	public String getNameLicense() 
 	{
-		return name_license;
+		return nameLicense;
 	}
 
-	public void setName_License(String name_license) 
+	public void setNameLicense(String nameLicense) 
 	{
-		this.name_license = name_license;
+		this.nameLicense = nameLicense;
 	}
 
 	@Override
-	public String toString() {
-		return "License [id_license=" + id_license + ", name_license=" + name_license + "]";
+	public String toString() 
+	{
+		return "License [idLicense=" + idLicense + ", nameLicense=" + nameLicense + "]";
 	}
 }

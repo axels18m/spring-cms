@@ -7,144 +7,145 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "post")
 public class Post 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_post;
-	private int idUser_post;
-	private int category_post;
-	private int type_post;
-	private String image_post;
-	private String title_post;
-	private String description_post;
-	private String slug_post;
-	private Date startedDate_post;
-	private Date endDay_post;
+	private int idPost;
+	private int idUserPost;
+	private int categoryPost;
+	private int typePost;
+	private String imagePost;
+	private String titlePost;
+	private String descriptionPost;
+	private String slugPost;
+	private Date startedDatePost;
+	private Date endDayPost;
 
 	public Post(int post, int user, int category, int type, String image, String title, String description, String slug, Date start, Date end)
 	{
-		this.id_post = post;
-		this.idUser_post = user;
-		this.category_post = category;
-		this.type_post = type;
-		this.image_post = image;
-		this.title_post = title;
-		this.description_post = description;
-		this.slug_post = slug;
-		this.startedDate_post = start;
-		this.endDay_post = end;
+		this.idPost = post;
+		this.idUserPost = user;
+		this.categoryPost = category;
+		this.typePost = type;
+		this.imagePost = image;
+		this.titlePost = title;
+		this.descriptionPost = description;
+		this.slugPost = slug;
+		this.startedDatePost = start;
+		this.endDayPost = end;
 	}
 
 	public Post() {}
-	
-	public int getId_Post() 
+
+	public int getIdPost() 
 	{
-		return id_post;
+		return idPost;
 	}
 
-	public void setId_Post(int id_post) 
+	public void setIdPost(int idPost) 
 	{
-		this.id_post = id_post;
+		this.idPost = idPost;
 	}
 
-	public int getIdUser_Post() 
+	public int getIdUserPost() 
 	{
-		return idUser_post;
+		return idUserPost;
 	}
 
-	public void setIdUser_Post(int idUser_post) 
+	public void setIdUserPost(int idUserPost) 
 	{
-		this.idUser_post = idUser_post;
+		this.idUserPost = idUserPost;
 	}
 
-	public int getCategory_Post() 
+	public int getCategoryPost() 
 	{
-		return category_post;
+		return categoryPost;
 	}
 
-	public void setCategory_Post(int category_post) 
+	public void setCategoryPost(int categoryPost) 
 	{
-		this.category_post = category_post;
+		this.categoryPost = categoryPost;
 	}
 
-	public int getType_Post() 
+	public int getTypePost() 
 	{
-		return type_post;
+		return typePost;
 	}
 
-	public void setType_Post(int type_post) 
+	public void setTypePost(int typePost) 
 	{
-		this.type_post = type_post;
+		this.typePost = typePost;
 	}
 
-	public String getImage_Post() 
+	public String getImagePost() 
 	{
-		return image_post;
+		return imagePost;
 	}
 
-	public void setImage_Post(String image_post) 
+	public void setImagePost(String imagePost) 
 	{
-		this.image_post = image_post;
+		this.imagePost = imagePost;
 	}
 
-	public String getTitle_Post() 
+	public String getTitlePost() 
 	{
-		return title_post;
+		return titlePost;
 	}
 
-	public void setTitle_Post(String title_post) 
+	public void setTitlePost(String titlePost) 
 	{
-		this.title_post = title_post;
+		this.titlePost = titlePost;
 	}
 
-	public String getDescription_Post() 
+	public String getDescriptionPost() 
 	{
-		return description_post;
+		return descriptionPost;
 	}
 
-	public void setDescription_Post(String description_post) 
+	public void setDescriptionPost(String descriptionPost) 
 	{
-		this.description_post = description_post;
+		this.descriptionPost = descriptionPost;
 	}
 
-	public String getSlug_Post() 
+	public String getSlugPost() 
 	{
-		return slug_post;
+		return slugPost;
 	}
 
-	public void setSlug_Post(String slug_post) 
+	public void setSlugPost(String slugPost) 
 	{
-		this.slug_post = slug_post;
+		this.slugPost = slugPost;
 	}
 
-	public Date getStartedDate_Post() 
+	public Date getStartedDatePost() 
 	{
-		return startedDate_post;
+		return startedDatePost;
 	}
 
-	public void setStartedDate_Post(Date startedDate_post) 
+	public void setStartedDatePost(Date startedDatePost) 
 	{
-		this.startedDate_post = startedDate_post;
+		this.startedDatePost = startedDatePost;
 	}
 
-	public Date getEndDay_Post() 
+	public Date getEndDayPost() 
 	{
-		return endDay_post;
+		return endDayPost;
 	}
 
-	public void setEndDay_Post(Date endDay_post)
+	public void setEndDayPost(Date endDayPost) 
 	{
-		this.endDay_post = endDay_post;
+		this.endDayPost = endDayPost;
 	}
 
 	@Override
-	public String toString() {
-		return "Post [id_post=" + id_post + ", idUser_post=" + idUser_post + ", category_post=" + category_post
-				+ ", type_post=" + type_post + ", image_post=" + image_post + ", title_post=" + title_post
-				+ ", description_post=" + description_post + ", slug_post=" + slug_post + ", startedDate_post="
-				+ startedDate_post + ", endDay_post=" + endDay_post + "]";
+	public String toString() 
+	{
+		return "Post [idPost=" + idPost + ", idUserPost=" + idUserPost + ", categoryPost=" + categoryPost
+				+ ", typePost=" + typePost + ", imagePost=" + imagePost + ", titlePost=" + titlePost
+				+ ", descriptionPost=" + descriptionPost + ", slugPost=" + slugPost + ", startedDatePost="
+				+ startedDatePost + ", endDayPost=" + endDayPost + "]";
 	}
-	
+
 }

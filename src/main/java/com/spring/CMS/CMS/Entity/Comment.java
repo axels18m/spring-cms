@@ -7,92 +7,97 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "comment")
 public class Comment 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_commt;
+	private int idCommt;
 	
-	private String comment_cmmt;
-	private int idPost_cmmt;
-	private int idUser_cmmt;
-	private Date date_cmmt;
-	private String answer_cmmt;
+	private String commentCmmt;
+	private int idPostCmmt;
+	private int idUserCmmt;
+	private Date dateCmmt;
+	private String answerCmmt;
 	
 	public Comment(int id, int post, int user, Date date, String answer)
 	{
-		this.id_commt = id;
-		this.idPost_cmmt = post;
-		this.idUser_cmmt = user;
-		this.date_cmmt = date;
-		this.date_cmmt = date;
-		this.answer_cmmt = answer;
+		this.idCommt = id;
+		this.idPostCmmt = post;
+		this.idUserCmmt = user;
+		this.dateCmmt = date;
+		this.dateCmmt = date;
+		this.answerCmmt = answer;
 	}
 	
-	public int getId_Commt() 
+	public Comment() {}
+
+	public int getIdCommt() 
 	{
-		return id_commt;
+		return idCommt;
 	}
-	
-	public void setId_Commt(int id_commt) 
+
+	public void setIdCommt(int idCommt) 
 	{
-		this.id_commt = id_commt;
+		this.idCommt = idCommt;
 	}
-	
-	public String getComment_Cmmt() 
+
+	public String getCommentCmmt() 
 	{
-		return comment_cmmt;
+		return commentCmmt;
 	}
-	
-	public void setComment_Cmmt(String comment_cmmt) 
+
+	public void setCommentCmmt(String commentCmmt) 
 	{
-		this.comment_cmmt = comment_cmmt;
+		this.commentCmmt = commentCmmt;
 	}
-	
-	public int getIdPost_Cmmt() 
+
+	public int getIdPostCmmt() 
 	{
-		return idPost_cmmt;
+		return idPostCmmt;
 	}
-	
-	public void setIdPost_Cmmt(int id_post) 
+
+	public void setIdPostCmmt(int idPostCmmt) 
 	{
-		this.idPost_cmmt = id_post;
+		this.idPostCmmt = idPostCmmt;
 	}
-	
-	public int getIdUser_Cmmt() 
+
+	public int getIdUserCmmt() 
 	{
-		return idUser_cmmt;
+		return idUserCmmt;
 	}
-	
-	public void setIdUser_Cmmt(int id_user) 
+
+	public void setIdUserCmmt(int idUserCmmt) 
 	{
-		this.idUser_cmmt = id_user;
+		this.idUserCmmt = idUserCmmt;
 	}
-	
-	public Date getDate_Cmmt() 
+
+	public Date getDateCmmt() 
 	{
-		return date_cmmt;
+		return dateCmmt;
 	}
-	
-	public void setDate_Cmmt(Date date_commt) {
-		this.date_cmmt = date_commt;
-	}
-	
-	public String getAnswer_Cmmt() 
+
+	public void setDateCmmt(Date dateCmmt) 
 	{
-		return answer_cmmt;
+		this.dateCmmt = dateCmmt;
 	}
-	
-	public void setAnswer_Cmmt(String answer_commt) 
+
+	public String getAnswerCmmt() 
 	{
-		this.answer_cmmt = answer_commt;
+		return answerCmmt;
+	}
+
+	public void setAnswerCmmt(String answerCmmt) 
+	{
+		this.answerCmmt = answerCmmt;
 	}
 
 	@Override
-	public String toString() {
-		return "Comment [id_commt=" + id_commt + ", comment_cmmt=" + comment_cmmt + ", idPost_cmmt=" + idPost_cmmt
-				+ ", idUser_cmmt=" + idUser_cmmt + ", date_cmmt=" + date_cmmt + ", answer_cmmt=" + answer_cmmt + "]";
+	public String toString() 
+	{
+		return "Comment [idCommt=" + idCommt + ", commentCmmt=" + commentCmmt + ", idPostCmmt=" + idPostCmmt
+				+ ", idUserCmmt=" + idUserCmmt + ", dateCmmt=" + dateCmmt + ", answerCmmt=" + answerCmmt + "]";
 	}
+	
 	
 }

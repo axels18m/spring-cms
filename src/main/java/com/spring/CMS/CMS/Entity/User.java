@@ -10,91 +10,95 @@ public class User
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_user;
+	private int idUser;
 	
-	private String name_user;
-	private String lname_user;
-	private String email_user;
-	private String pass_user;
-	private int group_user;
+	private String nameUser;
+	private String lnameUser;
+	private String emailUser;
+	private String passUser;
+	private int groupUser;
 	
 	public User(int id, String name, String lname, String email, String pass, int group)
 	{
-		this.id_user = id;
-		this.name_user = name;
-		this.lname_user = lname;
-		this.email_user = email;
-		this.pass_user = pass;
-		this.group_user = group;
+		this.idUser = id;
+		this.nameUser = name;
+		this.lnameUser = lname;
+		this.emailUser = email;
+		this.passUser = pass;
+		this.groupUser = group;
 	}
 	
 	public User() {}
 
-	public int getId_User() 
+	public int getIdUser() 
 	{
-		return id_user;
+		return idUser;
 	}
 
-	public void setId_User(int id_user) 
+	public void setIdUser(int idUser) 
 	{
-		this.id_user = id_user;
+		this.idUser = idUser;
 	}
 
-	public String getName_User() 
+	public String getNameUser() 
 	{
-		return name_user;
+		return nameUser;
 	}
 
-	public void setName_User(String name_user) 
+	public void setNameUser(String nameUser) 
 	{
-		this.name_user = name_user;
+		this.nameUser = nameUser;
 	}
 
-	public String getLname_User() 
+	public String getLnameUser() 
 	{
-		return lname_user;
+		return lnameUser;
 	}
 
-	public void setLname_User(String lname_user) 
+	public void setLnameUser(String lnameUser) 
 	{
-		this.lname_user = lname_user;
+		this.lnameUser = lnameUser;
 	}
 
-	public String getEmail_User() 
+	public String getEmailUser() 
 	{
-		return email_user;
+		return emailUser;
 	}
 
-	public void setEmail_User(String email_user) 
+	public void setEmailUser(String emailUser) 
 	{
-		this.email_user = email_user;
+		this.emailUser = emailUser;
 	}
 
-	public String getPass_User() 
+	public String getPassUser() 
 	{
-		return pass_user;
+		return passUser;
 	}
 
-	public void setPass_User(String pass_user) 
+	public void setPassUser(String passUser) 
 	{
-		this.pass_user = pass_user;
+		this.passUser = passUser;
 	}
 
-	public int getGroup_User() 
+	public int getGroupUser() 
 	{
-		return group_user;
+		return groupUser;
 	}
 
-	public void setGroup_User(int group_user) 
+	public void setGroupUser(int groupUser) 
 	{
-		this.group_user = group_user;
+		this.groupUser = groupUser;
 	}
 
 	@Override
-	public String toString() {
-		return "User [id_user=" + id_user + ", name_user=" + name_user + ", lname_user=" + lname_user + ", email_user="
-				+ email_user + ", pass_user=" + pass_user + ", group_user=" + group_user + "]";
+	public String toString()
+	{
+		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", lnameUser=" + lnameUser + ", emailUser="
+				+ emailUser + ", passUser=" + passUser + ", groupUser=" + groupUser + "]";
 	}
+	
+	
+
 }
 
 

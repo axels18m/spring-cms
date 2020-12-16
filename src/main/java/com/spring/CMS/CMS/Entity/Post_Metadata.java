@@ -5,83 +5,84 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "post_meta")
 public class Post_Metadata 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_postmet;
+	private int idPostmet;
 	
-	private int idPost_postmet;
-	private String key_postmet;
-	private String value_postmet;
-	private String type_postmet;
+	private int idPostPostmet;
+	private String keyPostmet;
+	private String valuePostmet;
+	private String typePostmet;
 	
 	public Post_Metadata(int metadata, int post, String key, String value, String type)
 	{
-		this.id_postmet = metadata;
-		this.idPost_postmet = post;
-		this.key_postmet = key;
-		this.value_postmet = value;
-		this.type_postmet = value;
+		this.idPostmet = metadata;
+		this.idPostPostmet = post;
+		this.keyPostmet = key;
+		this.valuePostmet = value;
+		this.typePostmet = value;
 	}
 	
 	public Post_Metadata() {}
 
-	public int getId_Postmet() 
+	public int getIdPostmet() 
 	{
-		return id_postmet;
+		return idPostmet;
 	}
 
-	public void setId_Postmet(int id_postmet) 
+	public void setIdPostmet(int idPostmet) 
 	{
-		this.id_postmet = id_postmet;
+		this.idPostmet = idPostmet;
 	}
 
-	public int getIdPost_Postmet() 
+	public int getIdPostPostmet() 
 	{
-		return idPost_postmet;
+		return idPostPostmet;
 	}
 
-	public void setIdPost_Postmet(int idPost_postmet) 
+	public void setIdPostPostmet(int idPostPostmet) 
 	{
-		this.idPost_postmet = idPost_postmet;
+		this.idPostPostmet = idPostPostmet;
 	}
 
-	public String getKey_Postmet() 
+	public String getKeyPostmet() 
 	{
-		return key_postmet;
+		return keyPostmet;
 	}
 
-	public void setKey_Postmet(String key_postmet) 
+	public void setKeyPostmet(String keyPostmet) 
 	{
-		this.key_postmet = key_postmet;
+		this.keyPostmet = keyPostmet;
 	}
 
-	public String getValue_Postmet() 
+	public String getValuePostmet() 
 	{
-		return value_postmet;
+		return valuePostmet;
 	}
 
-	public void setValue_Postmet(String value_postmet) 
+	public void setValuePostmet(String valuePostmet) 
 	{
-		this.value_postmet = value_postmet;
+		this.valuePostmet = valuePostmet;
 	}
 
-	public String getType_Postmet() 
+	public String getTypePostmet() 
 	{
-		return type_postmet;
+		return typePostmet;
 	}
 
-	public void setType_Postmet(String type_postmet) 
+	public void setTypePostmet(String typePostmet) 
 	{
-		this.type_postmet = type_postmet;
+		this.typePostmet = typePostmet;
 	}
 
 	@Override
-	public String toString() {
-		return "Post_Metadata [id_postmet=" + id_postmet + ", idPost_postmet=" + idPost_postmet + ", key_postmet="
-				+ key_postmet + ", value_postmet=" + value_postmet + ", type_postmet=" + type_postmet + "]";
+	public String toString() 
+	{
+		return "Post_Metadata [idPostmet=" + idPostmet + ", idPostPostmet=" + idPostPostmet + ", keyPostmet="
+				+ keyPostmet + ", valuePostmet=" + valuePostmet + ", typePostmet=" + typePostmet + "]";
 	}
 	
 }

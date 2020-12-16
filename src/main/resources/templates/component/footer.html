@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="/css/bootstrap.css"/>
+    <!--th:href: es un motor de busqueda y buscara la ruta que le indiquemos-->
+    <script th:href="@{/js/jquery.js}" src="/js/jquery.js"></script>
+    <script th:href="@{/js/bootstrap.js}" src="/js/bootstrap.js"></script>
+    <title>Spring Boot</title>
+  </head>
+  <body>
+
+    <div th:fragment="footer">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-2 bg-dark">
+          © 2020 Copyright:
+          <p class = "text-light"> Java Spring Boot </p>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
+  </body>
+</html>
