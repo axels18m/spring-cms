@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.CMS.CMS.Entity.Post;
+import com.spring.CMS.CMS.Service.CategoryService;
+import com.spring.CMS.CMS.Service.ContentService;
 import com.spring.CMS.CMS.Service.PostService;
+import com.spring.CMS.CMS.Service.UserService;
 
 @Controller
 @RequestMapping("/admin/post")
@@ -21,6 +24,15 @@ public class PostAdminController
 {
 	@Autowired
 	private PostService service;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private CategoryService catService;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable) 
@@ -34,6 +46,9 @@ public class PostAdminController
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
 		m.addAttribute("post", service.getById(id));
+		m.addAttribute("users", userService.getAll(new Pageable()));
+		m.addAttribute("categories", catService.getAll(new Pageable()));
+		m.addAttribute("contents", contentService.getAll(new Pageable()));
 		return new ModelAndView("/admin/post/index");
 	}
 	
@@ -41,6 +56,9 @@ public class PostAdminController
 	public ModelAndView insert(Model m)
 	{
 		m.addAttribute("post", new Post());
+		m.addAttribute("users", userService.getAll(new Pageable()));
+		m.addAttribute("categories", catService.getAll(new Pageable()));
+		m.addAttribute("contents", contentService.getAll(new Pageable()));
 		return new ModelAndView("/admin/post/index");
 	}
 	

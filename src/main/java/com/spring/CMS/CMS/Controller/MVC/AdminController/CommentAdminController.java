@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.CMS.CMS.Entity.Comment;
 import com.spring.CMS.CMS.Service.CommentService;
+import com.spring.CMS.CMS.Service.PostService;
+import com.spring.CMS.CMS.Service.UserService;
 
 @Controller
 @RequestMapping("/admin/comment")
@@ -21,6 +23,12 @@ public class CommentAdminController
 {
 	@Autowired
 	private CommentService service;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private PostService postService;
 	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable)
@@ -34,13 +42,17 @@ public class CommentAdminController
 	public ModelAndView insert(Model m)
 	{
 		m.addAttribute("comment", new Comment());
+		m.addAttribute("users", userService.getAll(new Pageable()));
+		m.addAttribute("posts", postService.getAll(new Pageable()));
 		return new ModelAndView("/admin/comment/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("category", service.getById(id));
+		m.addAttribute("comment", service.getById(id));
+		m.addAttribute("users", userService.getAll(new Pageable()));
+		m.addAttribute("posts", postService.getAll(new Pageable()));
 		return new ModelAndView("/admin/comment/index");
 	}
 	

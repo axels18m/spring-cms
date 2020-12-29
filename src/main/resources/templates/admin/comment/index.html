@@ -27,12 +27,16 @@
 
                     <div class="form-group">
                         <label for="id_post_cmmt">Id of post</label>
-                        <input class="form-control" type="int" th:value = "*{id_post_cmmt}" th:field = "*{id_post_cmmt}">
+                        <select class="form-control" th:field = "*{id_post_cmmt}">
+                            <option th:each="post : ${posts}" th:value="${post.getId_post()}" th:text = "${post.getDescription_post()}"></option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="id_user_cmmt">Id if user</label>
-                        <input class="form-control" type="int" th:value = "*{id_user_cmmt}" th:field = "*{id_user_cmmt}">
+                        <select class="form-control" th:field = "*{id_user_cmmt}">
+                            <option th:each="user : ${users}" th:value="${user.getId_user()}" th:text = "${user.getName_user()}"></option>
+                        </select>
                     </div>
 
                     <div class="form-group">

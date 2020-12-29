@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.CMS.CMS.Entity.User;
+import com.spring.CMS.CMS.Service.GroupService;
 import com.spring.CMS.CMS.Service.UserService;
 
 @Controller
@@ -21,6 +22,9 @@ public class UserAdminController
 {
 	@Autowired 
 	private UserService service;
+	
+	@Autowired
+	private GroupService groupService;
 	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable) 
@@ -34,6 +38,7 @@ public class UserAdminController
 	public ModelAndView insert(Model m)
 	{
 		m.addAttribute("user", new User());
+		m.addAttribute("groups", groupService.getAll(new Pageable()));
 		return new ModelAndView("/admin/user/index");
 	}
 	

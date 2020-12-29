@@ -27,12 +27,16 @@
 
                     <div class="form-group">
                         <label for="type_metadata">Id Type</label>
-                        <input class="form-control" type="text" th:value = "*{type_metadata}" th:field = "*{type_metadata}">
+                        <select class="form-control" th:field = "*{type_metadata}">
+                            <option th:each="content : ${contents}" th:value="${content.getId_content()}" th:text = "${content.getType_content()}"></option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="id_user_metadata">Id User</label>
-                        <input class="form-control" type="int" th:value = "*{id_user_metadata}" th:field = "*{id_user_metadata}">
+                        <select class="form-control" th:field = "*{id_user_metadata}">
+                            <option th:each="user : ${users}" th:value="${user.getId_user()}" th:text = "${user.getName_user()}"></option>
+                        </select>
                     </div>
 
                     <div class="form-group">

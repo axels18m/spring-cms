@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.CMS.CMS.Entity.Post_Metadata;
+import com.spring.CMS.CMS.Service.ContentService;
+import com.spring.CMS.CMS.Service.PostService;
 import com.spring.CMS.CMS.Service.Post_MetadataService;
 
 @Controller
@@ -21,6 +23,12 @@ public class Post_MetadataAdminController
 {
 	@Autowired
 	private Post_MetadataService service;
+	
+	@Autowired
+	private PostService postService;
+	
+	@Autowired
+	private ContentService contentService;
 	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable)
@@ -34,6 +42,8 @@ public class Post_MetadataAdminController
 	public ModelAndView insert(Model m)
 	{
 		m.addAttribute("post_metadata", new Post_Metadata());
+		m.addAttribute("posts", postService.getAll(new Pageable()));
+		m.addAttribute("contents", contentService.getAll(new Pageable()));
 		return new ModelAndView("/admin/post_metadata/index");
 	}
 	
@@ -41,6 +51,8 @@ public class Post_MetadataAdminController
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
 		m.addAttribute("post_metadata", service.getById(id));
+		m.addAttribute("posts", postService.getAll(new Pageable()));
+		m.addAttribute("contents", contentService.getAll(new Pageable()));
 		return new ModelAndView("/admin/post_metadata/index");
 	}
 	

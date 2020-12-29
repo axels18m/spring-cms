@@ -40,7 +40,7 @@ public class LicenseAdminController
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("category", service.getById(id));
+		m.addAttribute("license", service.getById(id));
 		return new ModelAndView("/admin/license/index");
 	}
 	

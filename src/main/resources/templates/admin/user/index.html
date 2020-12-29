@@ -32,7 +32,9 @@
 
                     <div class="form-group">
                         <label for="group_user">Group</label>
-                        <input class="form-control" type="int" th:value = "*{group_user}" th:field = "*{group_user}">
+                        <select class="form-control" th:field = "*{group_user}">
+                            <option th:each="group : ${groups}" th:value="${group.getId_group()}" th:text = "${group.getName_group()}"></option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -42,7 +44,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="cancel" class="btn btn-primary"><a th:href="@{/admin/user/}">Cancelar</a></button>
+                        <button type="cancel" class="btn btn-primary"><a class = "text-white" th:href="@{/admin/user/}">Cancelar</a></button>
                     </div>
                 </form>
             </div>    
