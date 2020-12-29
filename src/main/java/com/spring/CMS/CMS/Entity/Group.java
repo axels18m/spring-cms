@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "group")
+@Table(name = "group_table") /* group to group table name due to 'group is a msyql reserve word. */
 public class Group 
 {
 	@Id

@@ -12,49 +12,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.CMS.CMS.Entity.User;
-import com.spring.CMS.CMS.Service.UserService;
+import com.spring.CMS.CMS.Entity.Group_License;
+import com.spring.CMS.CMS.Service.Group_LicenseService;
 
 @Controller
-@RequestMapping("/admin/user")
-public class UserAdminController 
+@RequestMapping("/admin/group_license")
+public class Group_LicenseAdminController 
 {
-	@Autowired 
-	private UserService service;
+	
+	@Autowired
+	private Group_LicenseService service;
 	
 	@GetMapping({"/", ""})
-	public ModelAndView home(Model m, Pageable pageable) 
+	public ModelAndView home(Model m, Pageable pageable)
 	{
-		m.addAttribute("msg", "Bienvenido a usuario.");
-		m.addAttribute("users", service.getAll(pageable));
-		return new ModelAndView("admin/user");
+		m.addAttribute("msg", "Bienvenido a group licenses.");
+		m.addAttribute("license_groups", service.getAll(pageable));
+		return new ModelAndView("/admin/group_license");
 	}
 	
 	@GetMapping("/new")
 	public ModelAndView insert(Model m)
 	{
-		m.addAttribute("user", new User());
-		return new ModelAndView("/admin/user/index");
+		m.addAttribute("group_license", new Group_License());
+		return new ModelAndView("/admin/group_license/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("user", service.getById(id));
-		return new ModelAndView("/admin/user/index");
+		m.addAttribute("group_license", service.getById(id));
+		return new ModelAndView("/admin/group_license/index");
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute User user)
+	public String save(@ModelAttribute Group_License group)
 	{
-		service.save(user);
-		return "redirect:/admin/user";
+		service.save(group);
+		return "redirect:/admin/group_license";
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{id}"})
 	public String delete(@PathVariable int id)
 	{
 		service.delete(service.getById(id));
-		return "redirect:/admin/user";
+		return "redirect:/admin/group_license";
 	}
 }

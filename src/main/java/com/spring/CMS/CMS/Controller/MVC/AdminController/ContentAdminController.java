@@ -12,49 +12,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.CMS.CMS.Entity.Post;
-import com.spring.CMS.CMS.Service.PostService;
+import com.spring.CMS.CMS.Entity.Content;
+import com.spring.CMS.CMS.Service.ContentService;
 
 @Controller
-@RequestMapping("/admin/post")
-public class PostAdminController 
+@RequestMapping("/admin/content")
+public class ContentAdminController 
 {
 	@Autowired
-	private PostService service;
+	private ContentService service;
 	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable) 
 	{
-		m.addAttribute("msg", "Bienvenido a publicaciones.");
-		m.addAttribute("posts", service.getAll(pageable));
-		return new ModelAndView("/admin/post");
+		m.addAttribute("msg", "Bienvenido a content.");
+		m.addAttribute("contents", service.getAll(pageable));
+		return new ModelAndView("/admin/content");
+	}
+	
+	@GetMapping("/new")
+	public ModelAndView insert(Model m)
+	{
+		m.addAttribute("content", new Content());
+		return new ModelAndView("/admin/content/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("post", service.getById(id));
-		return new ModelAndView("/admin/post/index");
-	}
-	
-	@GetMapping({"/new"})
-	public ModelAndView insert(Model m)
-	{
-		m.addAttribute("post", new Post());
-		return new ModelAndView("/admin/post/index");
+		m.addAttribute("content", service.getById(id));
+		return new ModelAndView("/admin/content/index");
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute Post post)
+	public String save(@ModelAttribute Content content)
 	{
-		service.save(post);
-		return "redirect:/admin/post";
+		service.save(content);
+		return "redirect:admin/content";
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{id}"})
 	public String delete(@PathVariable int id)
 	{
 		service.delete(service.getById(id));
-		return "redirect:/admin/post";
+		return "redirect:/admin/category";
 	}
 }

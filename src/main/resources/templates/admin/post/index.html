@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Categoria</title>
+    <div th:replace="cdn/generalScripts.html :: scripts"></div>
+    <div th:insert= "cdn/generalStyles.html :: styles"></div>
+</head>
+<body>
+    <header th:replace="component/admin/adminHeader"/>
+    <div class="container justify-content-center align-items-center py-4">
+        <div class="row">
+            <div class="col-12">
+                <form th:action = "@{/admin/post}" th:object = "${post}" th:method = "post">
+                    <input type="hidden" th:field = "*{id_post}">
+
+                    <div class="form-group">
+                        <label for="title_post">Title</label>
+                        <input class="form-control" type="text" th:value = "*{title_post}" th:field = "*{title_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description_post">Description</label>
+                        <input class="form-control" type="text" th:value = "*{description_post}" th:field = "*{description_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug_post">Slug</label>
+                        <input class="form-control" type="text" th:value = "*{slug_post}" th:field = "*{slug_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image_post">Image</label>
+                        <input class="form-control" type="text" th:value = "*{image_post}" th:field = "*{image_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idUser_post">Id User Post</label>
+                        <input class="form-control" type="int" th:value = "*{idUser_post}" th:field = "*{idUser_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type_post">Type</label>
+                        <input class="form-control" type="int" th:value = "*{type_post}" th:field = "*{type_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category_post">Category</label>
+                        <input class="form-control" type="int" th:value = "*{category_post}" th:field = "*{category_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="started_date_post">Started Date</label>
+                        <input class="form-control" type="datetime-local" th:value = "*{started_date_post}" th:field = "*{started_date_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="end_day_post">End Date</label>
+                        <input class="form-control" type="datetime-local" th:value = "*{end_day_post}" th:field = "*{end_day_post}">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="cancel" class="btn btn-primary">Cancelar</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+     </div>
+    
+
+    <footer th:replace="component/admin/adminFooter"/>
+</body>
+</html>

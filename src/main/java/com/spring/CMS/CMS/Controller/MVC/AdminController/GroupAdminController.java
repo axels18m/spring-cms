@@ -12,49 +12,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.CMS.CMS.Entity.Post;
-import com.spring.CMS.CMS.Service.PostService;
+import com.spring.CMS.CMS.Entity.Group;
+import com.spring.CMS.CMS.Service.GroupService;
 
 @Controller
-@RequestMapping("/admin/post")
-public class PostAdminController 
+@RequestMapping("/admin/group")
+public class GroupAdminController 
 {
 	@Autowired
-	private PostService service;
+	private GroupService service;
 	
 	@GetMapping({"/", ""})
-	public ModelAndView home(Model m, Pageable pageable) 
+	public ModelAndView home(Model m, Pageable pageable)
 	{
-		m.addAttribute("msg", "Bienvenido a publicaciones.");
-		m.addAttribute("posts", service.getAll(pageable));
-		return new ModelAndView("/admin/post");
+		m.addAttribute("msg", "Bienvenido a group.");
+		m.addAttribute("groups", service.getAll(pageable));
+		return new ModelAndView("/admin/group");
+	}
+	
+	@GetMapping("/new")
+	public ModelAndView insert(Model m)
+	{
+		m.addAttribute("group", new Group());
+		return new ModelAndView("/admin/group/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("post", service.getById(id));
-		return new ModelAndView("/admin/post/index");
-	}
-	
-	@GetMapping({"/new"})
-	public ModelAndView insert(Model m)
-	{
-		m.addAttribute("post", new Post());
-		return new ModelAndView("/admin/post/index");
+		m.addAttribute("group", service.getById(id));
+		return new ModelAndView("/admin/group/index");
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute Post post)
+	public String save(@ModelAttribute Group comment)
 	{
-		service.save(post);
-		return "redirect:/admin/post";
+		service.save(comment);
+		return "redirect:/admin/group";
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{id}"})
 	public String delete(@PathVariable int id)
 	{
 		service.delete(service.getById(id));
-		return "redirect:/admin/post";
+		return "redirect:/admin/group";
 	}
 }

@@ -12,49 +12,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.CMS.CMS.Entity.User;
-import com.spring.CMS.CMS.Service.UserService;
+import com.spring.CMS.CMS.Entity.Post_Metadata;
+import com.spring.CMS.CMS.Service.Post_MetadataService;
 
 @Controller
-@RequestMapping("/admin/user")
-public class UserAdminController 
+@RequestMapping("/admin/post_metadata")
+public class Post_MetadataAdminController 
 {
-	@Autowired 
-	private UserService service;
+	@Autowired
+	private Post_MetadataService service;
 	
 	@GetMapping({"/", ""})
-	public ModelAndView home(Model m, Pageable pageable) 
+	public ModelAndView home(Model m, Pageable pageable)
 	{
-		m.addAttribute("msg", "Bienvenido a usuario.");
-		m.addAttribute("users", service.getAll(pageable));
-		return new ModelAndView("admin/user");
+		m.addAttribute("msg", "Bienvenido a content.");
+		m.addAttribute("metadata_posts", service.getAll(pageable));
+		return new ModelAndView("/admin/post_metadata");
 	}
 	
 	@GetMapping("/new")
 	public ModelAndView insert(Model m)
 	{
-		m.addAttribute("user", new User());
-		return new ModelAndView("/admin/user/index");
+		m.addAttribute("post_metadata", new Post_Metadata());
+		return new ModelAndView("/admin/post_metadata/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("user", service.getById(id));
-		return new ModelAndView("/admin/user/index");
+		m.addAttribute("post_metadata", service.getById(id));
+		return new ModelAndView("/admin/post_metadata/index");
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute User user)
+	public String save(@ModelAttribute Post_Metadata post_metadata)
 	{
-		service.save(user);
-		return "redirect:/admin/user";
+		service.save(post_metadata);
+		return "redirect:/admin/post_metadata";
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{id}"})
 	public String delete(@PathVariable int id)
 	{
 		service.delete(service.getById(id));
-		return "redirect:/admin/user";
+		return "redirect:/admin/post_metadata";
 	}
+
 }

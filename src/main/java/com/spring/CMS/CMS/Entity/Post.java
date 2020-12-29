@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity(name = "post")
 public class Post 
 {
@@ -20,7 +22,9 @@ public class Post
 	private String title_post;
 	private String description_post;
 	private String slug_post;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date started_date_post;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date end_day_post;
 	
 	public Post(int id_post, int idUser_post, int category_post, int type_post, String image_post, String title_post,

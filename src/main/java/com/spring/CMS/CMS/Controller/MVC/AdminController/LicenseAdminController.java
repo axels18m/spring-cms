@@ -12,49 +12,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.CMS.CMS.Entity.Post;
-import com.spring.CMS.CMS.Service.PostService;
+import com.spring.CMS.CMS.Entity.License;
+import com.spring.CMS.CMS.Service.LicenseService;
 
 @Controller
-@RequestMapping("/admin/post")
-public class PostAdminController 
+@RequestMapping("/admin/license")
+public class LicenseAdminController 
 {
 	@Autowired
-	private PostService service;
+	private LicenseService service;
 	
 	@GetMapping({"/", ""})
-	public ModelAndView home(Model m, Pageable pageable) 
+	public ModelAndView home(Model m, Pageable pageable)
 	{
-		m.addAttribute("msg", "Bienvenido a publicaciones.");
-		m.addAttribute("posts", service.getAll(pageable));
-		return new ModelAndView("/admin/post");
+		m.addAttribute("msg", "Bienvenido a licencias.");
+		m.addAttribute("licenses", service.getAll(pageable));
+		return new ModelAndView("/admin/license");
+	}
+	
+	@GetMapping("/new")
+	public ModelAndView insert(Model m)
+	{
+		m.addAttribute("license", new License());
+		return new ModelAndView("/admin/license/index");
 	}
 	
 	@GetMapping({"/edit/{id}", "/edit"})
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
-		m.addAttribute("post", service.getById(id));
-		return new ModelAndView("/admin/post/index");
-	}
-	
-	@GetMapping({"/new"})
-	public ModelAndView insert(Model m)
-	{
-		m.addAttribute("post", new Post());
-		return new ModelAndView("/admin/post/index");
+		m.addAttribute("category", service.getById(id));
+		return new ModelAndView("/admin/license/index");
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute Post post)
+	public String save(@ModelAttribute License license)
 	{
-		service.save(post);
-		return "redirect:/admin/post";
+		service.save(license);
+		return "redirect:/admin/license";
 	}
 	
 	@DeleteMapping({"/delete", "/delete/{id}"})
 	public String delete(@PathVariable int id)
 	{
 		service.delete(service.getById(id));
-		return "redirect:/admin/post";
+		return "redirect:/admin/license";
 	}
 }

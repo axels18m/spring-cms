@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity(name = "comment")
 public class Comment 
 {
@@ -17,6 +19,7 @@ public class Comment
 	private String comment_cmmt;
 	private int id_post_cmmt;
 	private int id_user_cmmt;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_cmmt;
 	private String answer_cmmt;
 	

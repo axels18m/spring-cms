@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Categoria</title>
+    <div th:replace="cdn/generalScripts.html :: scripts"></div>
+    <div th:insert= "cdn/generalStyles.html :: styles"></div>
+</head>
+<body>
+    <header th:replace="component/admin/adminHeader"/>
+    <div class="container justify-content-center align-items-center py-4">
+        <div class="row">
+            <div class="col-12">
+                <form th:action = "@{/admin/user}" th:object = "${user}" th:method = "post">
+                    <input type="hidden" th:field = "*{id_user}">
+
+                    <div class="form-group">
+                        <label for="name_user">Name</label>
+                        <input class="form-control" type="text" th:value = "*{name_user}" th:field = "*{name_user}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lname_user">Last Name</label>
+                        <input class="form-control" type="text" th:value = "*{lname_user}" th:field = "*{lname_user}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email_user">Email</label>
+                        <input class="form-control" type="email" th:value = "*{email_user}" th:field = "*{email_user}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="group_user">Group</label>
+                        <input class="form-control" type="int" th:value = "*{group_user}" th:field = "*{group_user}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pass_user">Password</label>
+                        <input class="form-control" type="text" th:value = "*{pass_user}" th:field = "*{pass_user}">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="cancel" class="btn btn-primary"><a th:href="@{/admin/user/}">Cancelar</a></button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+     </div>
+    
+
+    <footer th:replace="component/admin/adminFooter"/>
+</body>
+</html>

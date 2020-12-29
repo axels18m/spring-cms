@@ -4,5 +4,9 @@
     font-weight: bold;
 }
 
+.table-dark-bg
+{
+    background-color: hsl(231, 23%, 12%);
+}
 
 /* ------------------   Footer references   ------------------*/

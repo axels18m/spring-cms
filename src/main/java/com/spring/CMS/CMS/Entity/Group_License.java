@@ -32,7 +32,7 @@ public class Group_License
 		this.id_gpolic = id_gpolic;
 	}
 
-	public int getId_License_gpolic()
+	public int getId_license_gpolic()
 	{
 		return id_license_gpolic;
 	}

@@ -23,7 +23,7 @@ public class LicenseDAOIml implements LicenseDAO
 	public List<License> getAll(Pageable pageable)
 	{
 		Session session = em.unwrap(Session.class);
-		Query<License> query = session.createQuery("from post", License.class);
+		Query<License> query = session.createQuery("from license", License.class);
 		return query.getResultList();
 	}
 
@@ -38,7 +38,7 @@ public class LicenseDAOIml implements LicenseDAO
 	public List<License> getByName(String name) 
 	{
 		Session session = em.unwrap(Session.class);
-		Query<License> query = session.createQuery("from post where license.name_lic = '" + name + "'", License.class);
+		Query<License> query = session.createQuery("from license where license.name_lic = '" + name + "'", License.class);
 		return query.getResultList();
 	}
 

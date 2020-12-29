@@ -14,17 +14,17 @@ public class User_Metadata
 	
 	private int id_user_metadata;
 	private String key_metadata;
-	private String value_metada;
-	private String type_metada;
+	private String value_metadata;
+	private String type_metadata;
 	
-	public User_Metadata(int id_metadata, int id_user_metadata, String key_metadata, String value_metada,
-			String type_metada) 
+	public User_Metadata(int id_metadata, int id_user_metadata, String key_metadata, String value_metadata,
+			String type_metadata) 
 	{
 		this.id_metadata = id_metadata;
 		this.id_user_metadata = id_user_metadata;
 		this.key_metadata = key_metadata;
-		this.value_metada = value_metada;
-		this.type_metada = type_metada;
+		this.value_metadata = value_metadata;
+		this.type_metadata = type_metadata;
 	}
 
 	public User_Metadata() {}
@@ -59,31 +59,31 @@ public class User_Metadata
 		this.key_metadata = key_metadata;
 	}
 
-	public String getValue_metada() 
+	public String getValue_metadata() 
 	{
-		return value_metada;
+		return value_metadata;
 	}
 
-	public void setValue_metada(String value_metada) 
+	public void setValue_metadata(String value_metadata) 
 	{
-		this.value_metada = value_metada;
+		this.value_metadata = value_metadata;
 	}
 
-	public String getType_metada() 
+	public String getType_metadata() 
 	{
-		return type_metada;
+		return type_metadata;
 	}
 
-	public void setType_metada(String type_metada) 
+	public void setType_metadata(String type_metadata) 
 	{
-		this.type_metada = type_metada;
+		this.type_metadata = type_metadata;
 	}
 
 	@Override
 	public String toString() 
 	{
 		return "User_Metadata [id_metadata=" + id_metadata + ", id_user_metadata=" + id_user_metadata
-				+ ", key_metadata=" + key_metadata + ", value_metada=" + value_metada + ", type_metada=" + type_metada
+				+ ", key_metadata=" + key_metadata + ", value_metadata=" + value_metadata + ", type_metadata=" + type_metadata
 				+ "]";
 	}
 	

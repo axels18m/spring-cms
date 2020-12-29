@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity(name = "category")
 public class Category 
 {
@@ -15,6 +17,8 @@ public class Category
 	private int id_cat;
 	private String name_cat;
 	private String description_cat;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_cat;
 	private int cat_superior_cat;
 	
