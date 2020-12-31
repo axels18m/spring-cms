@@ -16,4 +16,6 @@ public interface Post_MetadataService extends BaseRep<Post_Metadata>
 	public Post_Metadata save(Post_Metadata post);
 	public Post_Metadata update(Post_Metadata post);
 	public void delete(Post_Metadata post);
+
+	public List<Post_Metadata> getByPost(int post);
 }

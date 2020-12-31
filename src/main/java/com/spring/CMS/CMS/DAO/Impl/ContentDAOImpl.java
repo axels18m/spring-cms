@@ -35,14 +35,6 @@ public class ContentDAOImpl implements ContentDAO
 	}
 
 	@Override
-	public List<Content> getByPost(int post) 
-	{
-		Session session = em.unwrap(Session.class);
-		Query<Content> query = session.createQuery("from content where content.idPost_content = " + post, Content.class);
-		return query.getResultList();
-	}
-
-	@Override
 	public Content save(Content content) 
 	{
 		Session session = em.unwrap(Session.class);
@@ -64,5 +56,12 @@ public class ContentDAOImpl implements ContentDAO
 		Session session = em.unwrap(Session.class);
 		session.delete(content);
 	}
-
+	
+	@Override
+	public List<Content> getByPost(int post) 
+	{
+		Session session = em.unwrap(Session.class);
+		Query<Content> query = session.createQuery("select c.* from content c inner join post p on c.id_post_content = p.id_post where c.id_post_content = " + post, Content.class);
+		return query.getResultList();
+	}
 }

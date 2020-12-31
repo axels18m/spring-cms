@@ -32,18 +32,6 @@ public class PostServiceImpl implements PostService
 	}
 
 	@Transactional
-	public List<Post> getByUser(int user) 
-	{
-		return dao.getByUser(user);
-	}
-
-	@Transactional
-	public List<Post> getByCategory(int category) 
-	{
-		return dao.getByCategory(category);
-	}
-
-	@Transactional
 	public List<Post> getByStartedDate(Date start) 
 	{
 		return dao.getByStartedDate(start);
@@ -73,6 +61,24 @@ public class PostServiceImpl implements PostService
 	public void delete(Post post) 
 	{
 		dao.delete(post);
+	}
+	
+	@Transactional
+	public List<Post> getByUser(int user) 
+	{
+		return dao.getByUser(user);
+	}
+
+	@Transactional
+	public List<Post> getByCategory(int category) 
+	{
+		return dao.getByCategory(category);
+	}
+
+	@Override
+	public List<Post> getByType(int type) 
+	{
+		return dao.getByType(type);
 	}
 
 }

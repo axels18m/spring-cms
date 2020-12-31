@@ -12,11 +12,13 @@ public interface PostDAO extends BaseRep<Post>
 {
 	public List<Post> getAll(Pageable pageable);
 	public Post getById(int post);
-	public List<Post> getByUser(int user);
-	public List<Post> getByCategory(int category);
 	public List<Post> getByStartedDate(Date start);
 	public List<Post> getByEndDate(Date end);
 	public Post save(Post post);
 	public Post update(Post post);
 	public void delete(Post post);
+	
+	public List<Post> getByUser(int user);
+	public List<Post> getByCategory(int category);
+	public List<Post> getByType(int type);
 }

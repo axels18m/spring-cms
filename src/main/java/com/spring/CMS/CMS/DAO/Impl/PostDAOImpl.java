@@ -36,22 +36,6 @@ public class PostDAOImpl implements PostDAO
 	}
 
 	@Override
-	public List<Post> getByUser(int user) 
-	{
-		Session session = em.unwrap(Session.class);
-		Query<Post> query = session.createQuery("from post where post.idUser_post = " + user, Post.class);
-		return query.getResultList();
-	}
-
-	@Override
-	public List<Post> getByCategory(int category) 
-	{
-		Session session = em.unwrap(Session.class);
-		Query<Post> query = session.createQuery("from post where post.category_post = " + category, Post.class);
-		return query.getResultList();
-	}
-
-	@Override
 	public List<Post> getByStartedDate(Date start) 
 	{
 		Session session = em.unwrap(Session.class);
@@ -88,6 +72,27 @@ public class PostDAOImpl implements PostDAO
 	{
 		Session session = em.unwrap(Session.class);
 		session.delete(post);
+	}
+
+	@Override
+	public List<Post> getByType(int type) 
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<Post>) (session.createQuery("select p.* from post p inner join content c on c.id_content = p.type_post where c.id_content = " + type, Post.class)).getResultList();
+	}
+	
+	@Override
+	public List<Post> getByUser(int user) 
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<Post>) (session.createQuery("select p.* from post p inner join user u on u.id_user = p.id_user_post where u.id_user = " + user, Post.class)).getResultList();
+	}
+
+	@Override
+	public List<Post> getByCategory(int category) 
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<Post>) (session.createQuery("select p.* from post p inner join category c on c.id_cat = p.category_post where c.id_cat = " + category, Post.class)).getResultList();
 	}
 
 }

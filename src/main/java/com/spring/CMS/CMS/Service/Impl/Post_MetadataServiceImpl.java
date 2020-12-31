@@ -61,4 +61,10 @@ public class Post_MetadataServiceImpl implements Post_MetadataService
 		dao.delete(post);
 	}
 
+	@Transactional
+	public List<Post_Metadata> getByPost(int post)
+	{
+		return dao.getByPost(post);
+	}
+
 }

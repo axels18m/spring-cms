@@ -16,4 +16,6 @@ public interface User_MetadataService extends BaseRep<User_Metadata>
 	public User_Metadata save(User_Metadata user);
 	public User_Metadata update(User_Metadata user);
 	public void delete(User_Metadata user);
+	
+	public List<User_Metadata> getByUser(int user);
 }

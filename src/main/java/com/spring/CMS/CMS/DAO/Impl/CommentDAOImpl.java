@@ -28,21 +28,6 @@ public class CommentDAOImpl implements CommentDAO
 		return query.getResultList();
 	}
 	
-	@Override
-	public List<Comment> getByPost(int post) 
-	{
-		Session session = em.unwrap(Session.class);
-		Query<Comment> query =  session.createQuery("from comment where comment.idPost_cmmt = " + post, Comment.class);
-		return query.getResultList();
-	}
-	
-	@Override
-	public List<Comment> getByUser(int user) 
-	{
-		Session session = em.unwrap(Session.class);
-		Query<Comment> query =  session.createQuery("from comment where comment.idUser_cmmt = " + user, Comment.class);
-		return query.getResultList();
-	}
 	
 	@Override
 	public Comment getById(int id) 
@@ -82,6 +67,19 @@ public class CommentDAOImpl implements CommentDAO
 		session.delete(comment);
 	}
 	
+	@Override
+	public List<Comment> getByPost(int post) 
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<Comment>) (session.createQuery("select c.* from comment c inner join post p on c.id_post_cmmt = p.id_post where c.id_post= " + post, Comment.class)).getResultList();
+	}
 	
+	@Override
+	public List<Comment> getByUser(int user) 
+	{
+		Session session = em.unwrap(Session.class);
+		Query<Comment> query =  session.createQuery("select c.* from comment c inner join user u on c.id_user_cmmt = u.id_user where u.id_user = " + user, Comment.class);
+		return query.getResultList();
+	}
 
 }

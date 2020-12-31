@@ -46,6 +46,7 @@ public class UserAdminController
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
 		m.addAttribute("user", service.getById(id));
+		m.addAttribute("groups", groupService.getAll(new Pageable()));
 		return new ModelAndView("/admin/user/index");
 	}
 	

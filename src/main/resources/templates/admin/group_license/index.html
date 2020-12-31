@@ -23,15 +23,25 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="id_group_gpolic">Id Group</label>
+                        <select class="form-control" th:field = "*{id_group_gpolic}">
+                            <option th:each="group : ${groups}" th:value="${group.getId_group()}" th:text = "${group.getName_group()}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_gpolic">Fecha</label>
+                        <input class="form-control" type="datetime-local" th:value = "*{date_gpolic}" th:field = "*{date_gpolic}">
+                    </div>
+
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="cancel" class="btn btn-primary">Borrar</button>
+                        <button type="cancel" class="btn btn-danger">Cancelar</button>
                     </div>
                 </form>
             </div>    
         </div>
      </div>
-    
-
     <footer th:replace="component/admin/adminFooter"/>
 </body>
 </html>

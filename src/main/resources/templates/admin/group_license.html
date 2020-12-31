@@ -20,6 +20,8 @@
                             <tr class= "border border-light">
                                 <th scope="row">#</th>
                                 <th scope="col">Id License</th>
+                                <th scope="col">Id Group</th>
+                                <th scope="col">Date</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -28,6 +30,8 @@
                             <tr>
                                 <td th:text = "${group.id_gpolic}" scope="row"></td>
                                 <td th:text = "${group.id_license_gpolic}"></td>
+                                <td th:text = "${group.id_group_gpolic}"></td>
+                                <td th:text = "${group.date_gpolic}"></td>
                                 <td class="d-flex justify-content-between align-items-center">
                                     <button type="button" class="btn btn-primary">
                                         <a class="text-white" th:href="'/admin/group_license/edit/' + ${group.id_gpolic}">Edit</a>

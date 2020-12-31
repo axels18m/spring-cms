@@ -61,4 +61,10 @@ public class User_MetadataServiceImpl implements User_MetadataService
 		dao.delete(user);
 	}
 
+	@Transactional
+	public List<User_Metadata> getByUser(int user) 
+	{
+		return dao.getByUser(user);
+	}
+
 }

@@ -41,8 +41,7 @@ public class UserDAOImpl implements UserDAO
 	public List<User> getByGroup(int group) 
 	{
 		Session session = em.unwrap(Session.class);
-		Query<User> query = session.createQuery("from user where user.group_user = " + group, User.class);
-		return query.getResultList();
+		return (List<User>) (session.createQuery("select u.* from user u inner join group_table gp on gp.id_group = u.group_user where gp.id_group = " + group, User.class)).getResultList();
 	}
 
 	@Override
@@ -67,6 +66,5 @@ public class UserDAOImpl implements UserDAO
 		Session session = em.unwrap(Session.class);
 		session.delete(user);
 	}
-	
 
 }

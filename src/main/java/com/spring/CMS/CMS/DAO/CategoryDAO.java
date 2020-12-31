@@ -15,4 +15,6 @@ public interface CategoryDAO extends BaseRep<Category>
 	public Category save(Category category);
 	public Category update(Category category);
 	public void delete(Category category);
+	
+	//public List<Category> getByCatSuperiorId(int id);
 }

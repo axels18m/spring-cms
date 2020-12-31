@@ -11,8 +11,9 @@ public interface UserDAO extends BaseRep<User>
 {
 	public List<User> getAll(Pageable pageable);
 	public User getById(int id);
-	public List<User> getByGroup(int group);
 	public User save(User user);
 	public User update(User user);
 	public void delete(User user);
+	
+	public List<User> getByGroup(int group);
 }

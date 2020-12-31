@@ -55,4 +55,16 @@ public class LicenseServiceImpl implements LicenseService
 		dao.delete(license);
 	}
 
+	@Transactional
+	public List<License> getByGroupLic(int group) 
+	{
+		return dao.getByGroupLic(group);
+	}
+
+	@Transactional
+	public List<License> getByDiffGroupLic(int group) 
+	{
+		return dao.getByDiffGroupLic(group);
+	}
+
 }

@@ -11,8 +11,11 @@ public interface Group_LicenseService extends BaseRep<Group_License>
 {
 	public List<Group_License> getAll(Pageable pageable);
 	public Group_License getById(int group);
-	public Group_License getByLicense(int license);
 	public Group_License save(Group_License group);
 	public Group_License update(Group_License group);
 	public void delete(Group_License group);
+	
+	public List<Group_License> getByGroup(int id);
+	public List<Group_License> getByLicense(int id);
+	public Group_License getByGroupAndLicense(int group, int license);
 }

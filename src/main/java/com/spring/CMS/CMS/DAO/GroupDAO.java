@@ -16,4 +16,6 @@ public interface GroupDAO extends BaseRep<Group>
 	public Group save(Group group);
 	public Group update(Group group);
 	public void delete(Group group);
+	
+	
 }

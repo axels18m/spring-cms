@@ -15,4 +15,7 @@ public interface LicenseService extends BaseRep<License>
 	public License save(License license);
 	public License update(License license);
 	public void delete(License license);
+	
+	public List<License> getByGroupLic(int group);
+	public List<License> getByDiffGroupLic(int group);
 }

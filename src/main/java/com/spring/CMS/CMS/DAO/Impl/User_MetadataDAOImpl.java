@@ -72,4 +72,12 @@ public class User_MetadataDAOImpl implements User_MetadataDAO
 		Session session = em.unwrap(Session.class);
 		session.delete(user);
 	}
+	
+	@Override
+	public List<User_Metadata> getByUser(int user) 
+	{
+		Session session = em.unwrap(Session.class);
+		Query<User_Metadata> query = session.createQuery("from user_metadata um inner join user u on um.id_user_metadata = u.id_user where u.id_user = " + user, User_Metadata.class);
+		return query.getResultList();
+	}
 }

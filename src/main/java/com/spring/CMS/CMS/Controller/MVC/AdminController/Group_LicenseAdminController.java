@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.CMS.CMS.Entity.Group_License;
+import com.spring.CMS.CMS.Service.GroupService;
 import com.spring.CMS.CMS.Service.Group_LicenseService;
 import com.spring.CMS.CMS.Service.LicenseService;
 
@@ -27,6 +28,9 @@ public class Group_LicenseAdminController
 	@Autowired
 	private LicenseService licenseService;
 	
+	@Autowired
+	private GroupService gpoService;
+	
 	@GetMapping({"/", ""})
 	public ModelAndView home(Model m, Pageable pageable)
 	{
@@ -40,6 +44,7 @@ public class Group_LicenseAdminController
 	{
 		m.addAttribute("group_license", new Group_License());
 		m.addAttribute("licenses", licenseService.getAll(new Pageable()));
+		m.addAttribute("groups", gpoService.getAll(new Pageable()));
 		return new ModelAndView("/admin/group_license/index");
 	}
 	
@@ -47,6 +52,8 @@ public class Group_LicenseAdminController
 	public ModelAndView update(Model m, @PathVariable int id)
 	{
 		m.addAttribute("group_license", service.getById(id));
+		m.addAttribute("licenses", licenseService.getAll(new Pageable()));
+		m.addAttribute("groups", gpoService.getAll(new Pageable()));
 		return new ModelAndView("/admin/group_license/index");
 	}
 	

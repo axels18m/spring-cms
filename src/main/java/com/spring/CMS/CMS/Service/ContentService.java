@@ -11,8 +11,9 @@ public interface ContentService extends BaseRep<Content>
 {
 	public List<Content> getAll(Pageable pageable);
 	public Content getById(int id);
-	public List<Content> getByPost(int post);
 	public Content save(Content content);
 	public Content update(Content content);
 	public void delete(Content content);
+
+	public List<Content> getByPost(int post);
 }

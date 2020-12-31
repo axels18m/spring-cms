@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.stereotype.Repository;
 
 import com.spring.CMS.CMS.DAO.Post_MetadataDAO;
+import com.spring.CMS.CMS.Entity.Content;
 import com.spring.CMS.CMS.Entity.Post_Metadata;
 
 @Repository
@@ -71,6 +72,14 @@ public class Post_MetadataDAOImpl implements Post_MetadataDAO
 	{
 		Session session = em.unwrap(Session.class);
 		session.delete(post);
+	}
+
+	@Override
+	public List<Post_Metadata> getByPost(int post)
+	{
+		Session session = em.unwrap(Session.class);
+		Query<Post_Metadata> query = session.createQuery("select pm.* from post_metadata pm inner join post p on pm.id_post_postmet = p.id_post where p.id_post = " + post, Post_Metadata.class);
+		return query.getResultList();
 	}
 
 }

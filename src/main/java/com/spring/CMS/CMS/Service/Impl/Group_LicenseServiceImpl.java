@@ -30,12 +30,6 @@ public class Group_LicenseServiceImpl implements Group_LicenseService
 	}
 
 	@Transactional
-	public Group_License getByLicense(int license) 
-	{
-		return dao.getByLicense(license);
-	}
-
-	@Transactional
 	public Group_License save(Group_License group) 
 	{
 		dao.save(group);
@@ -53,6 +47,24 @@ public class Group_LicenseServiceImpl implements Group_LicenseService
 	public void delete(Group_License group) 
 	{
 		dao.delete(group);
+	}
+
+	@Transactional
+	public List<Group_License> getByGroup(int id) 
+	{
+		return dao.getByGroup(id);
+	}
+
+	@Transactional
+	public List<Group_License> getByLicense(int id) 
+	{
+		return dao.getByLicense(id);
+	}
+
+	@Override
+	public Group_License getByGroupAndLicense(int group, int license) 
+	{
+		return dao.getByGroupAndLicense(group, license);
 	}
 
 }

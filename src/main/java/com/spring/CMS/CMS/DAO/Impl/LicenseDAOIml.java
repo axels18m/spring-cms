@@ -65,4 +65,18 @@ public class LicenseDAOIml implements LicenseDAO
 		session.delete(license);
 	}
 
+	@Override
+	public List<License> getByGroupLic(int group) 
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<License>) (session.createQuery("select distinct l from license l inner join group_license gl on l.id_license = gl.id_license_gpolic where gl.id_group_gpolic = " + group, License.class)).getResultList();
+	}
+
+	@Override
+	public List<License> getByDiffGroupLic(int group)
+	{
+		Session session = em.unwrap(Session.class);
+		return (List<License>) (session.createQuery("select distinct l from license l inner join group_license gl on l.id_license = gl.id_license_gpolic where gl.id_group_gpolic != " + group, License.class)).getResultList();
+	}
+
 }
